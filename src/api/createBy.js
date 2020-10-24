@@ -11,8 +11,7 @@ const bySubOpts = {
   string: ({opts: str}) => str,
   number: ({opts: num}) => num,
   object: ({opts: obj}) => obj,
-  function: ({opts: fn, props, prop, val}) =>
-    fn(props, val) |> bySubOpts[typeof #]({opts: #, props, prop, val}),
+  function: ({opts: fn, props, val}) => fn(props, val),
 };
 
 const byTypeOpts = {

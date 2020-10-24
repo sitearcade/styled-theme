@@ -2,7 +2,7 @@
 
 import {path, is, map, memoizeWith, equals} from 'ramda';
 
-import color from './color';
+import {color} from './color';
 import createBy from './createBy';
 import createIs from './createIs';
 import {splitDots} from './utils';
