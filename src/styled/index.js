@@ -45,9 +45,9 @@ export function ThemeProvider(props) {
 
   return (
     <Provider theme={boundTheme}>
-      <ApiContext value={boundApi}>
+      <ApiContext.Provider value={boundApi}>
         {children}
-      </ApiContext>
+      </ApiContext.Provider>
     </Provider>
   );
 }
