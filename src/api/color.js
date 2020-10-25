@@ -1,7 +1,7 @@
 // import
 
-import {mix, transparentize, path} from 'polished';
-import {is, clamp, pathOr} from 'ramda';
+import {mix, transparentize} from 'polished';
+import {is, clamp, path} from 'ramda';
 
 import {splitDots} from './utils';
 
@@ -42,7 +42,7 @@ const mixStep = (step, pal) => {
 };
 
 const fromPalette = ([pal, step], alphaOrDef) => (props) => {
-  const palette = pathOr({}, ['theme', 'palette', pal], props);
+  const palette = path(['theme', 'palette', pal], props) ?? {};
   const res = palette[step] ?? mixStep(step, palette) ?? null;
 
   return res && is(Number, alphaOrDef) ?
