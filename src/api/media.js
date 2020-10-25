@@ -15,8 +15,8 @@ const getMediaRanges = memoizeWith(equals, ([bps, px]) => {
 // export
 
 const media = (min = null, max = null) =>
-  ({theme: {rem: {px}, breakpoints: bps}}) => {
-    const [mins, maxs] = getMediaRanges([bps, px]);
+  ({theme: {remPx, breakpoints: bps}}) => {
+    const [mins, maxs] = getMediaRanges([bps, remPx]);
 
     min = is(Number, min) ? min : mins[min];
     max = is(Number, max) ? max : maxs[max];
