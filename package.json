@@ -1,11 +1,11 @@
 {
-  "name": "@sitearcade/react-theme",
+  "name": "@sitearcade/styled-theme",
   "version": "0.0.2",
   "description": "Theme-related react hooks, components, and utils.",
   "license": "MIT",
   "homepage": "https://www.sitearcade.com",
-  "repository": "github:sitearcade/react-theme",
-  "bugs": "https://github.com/sitearcade/react-theme/issues",
+  "repository": "github:sitearcade/styled-theme",
+  "bugs": "https://github.com/sitearcade/styled-theme/issues",
   "author": {
     "name": "Mike Stop Continues",
     "email": "mike@sitearcade.com",
