@@ -23,14 +23,14 @@ export const snuffProps = (props) =>
 
 // context
 
-const ApiContext = createContext();
+const ThemeApiContext = createContext();
 
 // hook
 
 export {useTheme};
 
 export function useThemeApi() {
-  return useContext(ApiContext);
+  return useContext(ThemeApiContext);
 }
 
 // component
@@ -45,9 +45,9 @@ export function ThemeProvider(props) {
 
   return (
     <Provider theme={boundTheme}>
-      <ApiContext.Provider value={boundApi}>
+      <ThemeApiContext.Provider value={boundApi}>
         {children}
-      </ApiContext.Provider>
+      </ThemeApiContext.Provider>
     </Provider>
   );
 }
