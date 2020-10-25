@@ -18,7 +18,7 @@ const api = {
   color: colorFn,
   media: mediaFn,
   breakSize: ({theme}, bp, unit = 'rem') => theme.breakpoints[bp] + unit,
-  rpx: ({theme: remPx}, n = 0) => `${n / remPx}rem`,
+  rpx: ({theme: {remPx}}, n = 0) => `${n / remPx}rem`,
 
   // is
   is: createIs('every', true),
