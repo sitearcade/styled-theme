@@ -59,6 +59,8 @@ export const bindThemeToApi = (theme) =>
   }), {});
 
 export const by = styledApi.by;
+by.func = (fn) => ({props, val}) => fn(val)(props);
+
 export const get = styledApi.get;
 export const layout = styledApi.layout;
 export const fontFam = styledApi.fontFam;

@@ -1,19 +1,19 @@
 // import
 
 import {mix, transparentize} from 'polished';
-import {is, clamp} from 'ramda';
+import {is, clamp, path} from 'ramda';
 
-import {dotPath} from './utils';
+import {splitDots} from './utils';
 
 // fns
 
 const getColor = (props, loc, def) =>
-  dotPath(['theme', 'color', loc], props) ?? def ?? '';
+  path(['theme', 'color', ...loc], props) ?? def;
 
-const fromColors = (col, alphaOrDef) => (props) => (
+const fromColors = (props, col, alphaOrDef) => (
   is(Number, alphaOrDef) ?
-    transparentize(1 - alphaOrDef, getColor(col)(props)) :
-    getColor(col, alphaOrDef)(props)
+    transparentize(1 - alphaOrDef, getColor(props, col)) :
+    getColor(props, col, alphaOrDef)
 );
 
 const reduceNear = (step) => (acc, key) => ({
@@ -41,8 +41,8 @@ const mixStep = (step, pal) => {
     );
 };
 
-const fromPalette = ([pal, step], alphaOrDef) => (props) => {
-  const palette = dotPath(['theme', 'palette', pal], props) ?? {};
+const fromPalette = (props, [pal, step], alphaOrDef) => {
+  const palette = path(['theme', 'palette', pal], props) ?? {};
   const res = palette[step] ?? mixStep(step, palette) ?? null;
 
   return res && is(Number, alphaOrDef) ?
@@ -52,10 +52,12 @@ const fromPalette = ([pal, step], alphaOrDef) => (props) => {
 
 // export
 
-const color = (col, alphaOrDef) => (
-  col.length === 1 ?
-    fromColors(col, alphaOrDef) :
-    fromPalette(col, alphaOrDef)
-);
+const color = (props, col, alphaOrDef) => {
+  col = splitDots(col);
+
+  return col.length === 1 ?
+    fromColors(props, col, alphaOrDef) :
+    fromPalette(props, col, alphaOrDef);
+};
 
 export default color;
