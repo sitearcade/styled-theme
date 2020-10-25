@@ -10,6 +10,7 @@ import mediaFn from './media';
 const api = {
   // by
   by: createBy(),
+  get: createBy(['theme']),
   layout: createBy(['theme', 'layout']),
   fontFam: createBy(['theme', 'fontFam']),
 
@@ -58,6 +59,7 @@ export const bindThemeToApi = (theme) =>
   }), {});
 
 export const by = styledApi.by;
+export const get = styledApi.get;
 export const layout = styledApi.layout;
 export const fontFam = styledApi.fontFam;
 
