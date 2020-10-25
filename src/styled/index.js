@@ -4,7 +4,7 @@ import pt from 'prop-types';
 import {useMemo, createContext, useContext} from 'react';
 import {ThemeProvider as Provider, useTheme} from 'styled-components';
 
-import {bindTheme, api} from '../api';
+import {bindThemeToApi} from '../api';
 
 import normalizeTheme from './normalizeTheme';
 
@@ -40,7 +40,7 @@ export function ThemeProvider(props) {
   const [boundTheme, boundApi] = useMemo(() => {
     const normalTheme = normalizeTheme(theme);
 
-    return [normalTheme, bindTheme(api, normalTheme)];
+    return [normalTheme, bindThemeToApi(normalTheme)];
   }, [theme]);
 
   return (

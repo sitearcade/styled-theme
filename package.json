@@ -90,6 +90,9 @@
   "babel": {
     "presets": [
       "module:@sitearcade/babel-preset"
+    ],
+    "plugins": [
+      ["@babel/plugin-proposal-pipeline-operator", {"proposal": "smart"}]
     ]
   },
   "browserslist": [

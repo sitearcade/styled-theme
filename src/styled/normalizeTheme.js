@@ -1,7 +1,7 @@
 // import
 
 import {parseToHsl, toColorString} from 'polished';
-import {mergeDeepRight, mean, values, pluck, pipe, reduce, __, omit, filter, is, mapObjIndexed, keys, map} from 'ramda';
+import {mergeDeepRight, mergeWithKey, mean, values, pluck, pipe, reduce, __, omit, filter, is, mapObjIndexed, keys, map} from 'ramda';
 
 import defaultTheme from './defaultTheme';
 
@@ -50,31 +50,41 @@ const makeGetStep = ({hue}, below, above) => (step) => {
   });
 };
 
-function makePalette(palette, name) {
+const makeSteps = (color, below, above) =>
+  makeGetStep(color, below, above)
+  |> steps.reduce((acc, step) => ({
+    ...acc, [step]: #(step),
+  }), {});
+
+function makePalette(palette) {
   if (!is(String, palette)) {
     return palette;
   }
 
   const color = parseToHsl(palette);
+  const {below, above} = getNearest(color);
 
-  const {below, above} = name === 'gray' ? {
-    below: parsedPalette.gray, above: parsedPalette.gray,
-  } : getNearest(color);
-
-  const getStep = makeGetStep(color, below, above);
-
-  return steps.reduce((acc, step) => ({
-    ...acc, [step]: getStep(step),
-  }), {});
+  return makeSteps(color, below, above);
 }
+
+const makeReplacePalettes = (basePalette, newPalette) =>
+  Object.keys(newPalette).reduce((base, key) => ({
+    ...base,
+    [key]: base[key] && is(String, newPalette[key]) ?
+      makeSteps(parseToHsl(newPalette[key]), parsedPalette[key], parsedPalette[key]) :
+      newPalette[key],
+  }), basePalette);
 
 // export
 
 export default pipe(
-  mergeDeepRight(defaultTheme),
+  mergeWithKey((key, l, r) => (
+    key === 'palette' ? makeReplacePalettes(l, r) :
+    is(Object, l) ? mergeDeepRight(l, r) : r
+  ))(defaultTheme),
   ({palette, color, ...rest}) => ({
     ...rest,
     color: {...color, ...keepString(palette)},
-    palette: mapObjIndexed(makePalette, palette),
+    palette: map(makePalette, palette),
   }),
 );

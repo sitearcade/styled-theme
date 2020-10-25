@@ -1,8 +1,8 @@
 // import
 
-import {is, path} from 'ramda';
+import {is} from 'ramda';
 
-import {isFunction, splitDots, tryFunc} from './utils';
+import {isFunction, dotPath, tryFunc} from './utils';
 
 // fns
 
@@ -17,7 +17,7 @@ const createIs = (method, condition, pre = []) =>
     match = normalizeIsMatch(match);
 
     const res = Object.keys(match)[method]((loc) => {
-      const val = path([...pre, ...splitDots(loc)], props);
+      const val = dotPath([pre, loc], props);
 
       return condition === (
         isFunction(match[loc]) ? !!match[loc](val) : val === match[loc]

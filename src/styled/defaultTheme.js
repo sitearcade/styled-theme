@@ -5,10 +5,7 @@ import palette from './defaultPalette';
 // export
 
 export default {
-  rem: {
-    px: 16,
-    mx: 1.5,
-  },
+  remPx: 16,
 
   breakpoints: {
     xxs: 18,
@@ -23,10 +20,14 @@ export default {
   },
 
   fx: {
-    trans: {speed: 0.1, curve: 'linear', delay: 0.1},
-    outset: {x: 0, y: 0, blur: 0.25, spread: 0},
-    inset: {x: 0, y: 0, blur: 0.25, spread: 0},
-    outline: {x: 0, y: 0, blur: 0.0625, spread: 0.0625},
+    speed: 0.1,
+    delay: 0.1,
+    blur: 0.125,
+    spread: 0.0625,
+
+    outset: {blur: 0.25, spread: 0.0625},
+    inset: {blur: 0.25, spread: 0.0625},
+    outline: {blur: 0.0625, spread: 0.0625},
   },
 
   fontFam: {
