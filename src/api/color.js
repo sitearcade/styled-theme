@@ -1,7 +1,7 @@
 // import
 
 import {mix, transparentize, path} from 'polished';
-import R from 'ramda';
+import {is, clamp, pathOr} from 'ramda';
 
 import {splitDots} from './utils';
 
@@ -11,7 +11,7 @@ const getColor = (props, loc, def) => (
   path(['theme', 'color', ...splitDots(loc)], props) ?? def ?? ''
 );
 const fromColors = (col, alphaOrDef) => (props) => (
-  R.is(Number, alphaOrDef) ?
+  is(Number, alphaOrDef) ?
     transparentize(1 - alphaOrDef, getColor(col)(props)) :
     getColor(col, alphaOrDef)(props)
 );
@@ -24,12 +24,12 @@ const reduceNear = (step) => (acc, key) => ({
 });
 
 const getNearest = (step, pal) =>
-  R.keys(pal)
+  Object.keys(pal)
     .map(parseFloat)
     .reduce(reduceNear(step), {below: 0, above: 100});
 
 const mixStep = (step, pal) => {
-  step = parseFloat(R.clamp(0, 100, step));
+  step = parseFloat(clamp(0, 100, step));
   const {below, above} = getNearest(step, pal);
 
   return step === 0 ? '#000000' :
@@ -42,10 +42,10 @@ const mixStep = (step, pal) => {
 };
 
 const fromPalette = ([pal, step], alphaOrDef) => (props) => {
-  const palette = R.pathOr({}, ['theme', 'palette', pal], props);
+  const palette = pathOr({}, ['theme', 'palette', pal], props);
   const res = palette[step] ?? mixStep(step, palette) ?? null;
 
-  return res && R.is(Number, alphaOrDef) ?
+  return res && is(Number, alphaOrDef) ?
     transparentize(1 - alphaOrDef, res) :
     res ?? alphaOrDef ?? null;
 };
