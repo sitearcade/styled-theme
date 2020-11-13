@@ -13,9 +13,11 @@ const getAvgHue = R.pipe(
   R.mean,
 );
 
-const parsedPalette = R.mapObjIndexed((palette, name) => (
-  R.map(parseToHsl, palette) |> {name, hue: getAvgHue(#), scale: #}
-), defaultTheme.palette);
+const parsedPalette = R.mapObjIndexed((palette, name) => {
+  const scale = R.map(parseToHsl, palette);
+
+  return {name, hue: getAvgHue(scale), scale};
+}, defaultTheme.palette);
 
 const steps = R.keys(parsedPalette.gray.scale);
 
