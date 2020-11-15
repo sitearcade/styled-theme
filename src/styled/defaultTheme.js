@@ -32,7 +32,7 @@ export default {
 
   fontFam: {
     serif: 'Georgia, Times New Roman, serif',
-    sans: 'Roboto, Lato, Open Sans, san-serif',
+    sans: 'Roboto, Lato, Open Sans, sans-serif',
     mono: 'FiraCode-Retina, Fira Code, Menlo, Monaco, monospace',
   },
 
