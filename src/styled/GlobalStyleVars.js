@@ -19,6 +19,8 @@ const reduceStyleVars = (obj, pre = '') =>
   ), '');
 
 export const makeStyleVars = ({color, palette, breakpoints, ...theme}) => {
+  theme = R.clone(theme);
+
   theme.bp = {
     ...R.map((v) => `${v}rem`, breakpoints),
     min: R.map((v) => `${v}em`, breakpoints),
@@ -27,6 +29,7 @@ export const makeStyleVars = ({color, palette, breakpoints, ...theme}) => {
 
   theme.rpx = `${1 / theme.baseline}rem`;
   theme.baseline += 'px';
+
   theme.fx.speed += 's';
   theme.fx.delay += 's';
   theme.fx.blur += 'rem';
