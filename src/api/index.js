@@ -3,7 +3,8 @@
 import colorFn from './color';
 import createBy from './createBy';
 import createIs from './createIs';
-import mediaFn from './media';
+import * as fxFns from './fx';
+import mediaFn, {maxClip} from './media';
 
 // api
 
@@ -12,13 +13,16 @@ const api = {
   by: createBy(),
   get: createBy(['theme']),
   layout: createBy(['theme', 'layout']),
-  fontFam: createBy(['theme', 'fontFam']),
+  fontFam: createBy(['theme', 'font']),
 
   // special
   color: colorFn,
   media: mediaFn,
-  breakSize: ({theme}, bp, unit = 'rem') => theme.breakpoints[bp] + unit,
-  rpx: ({theme: {remPx}}, n = 0) => `${n / remPx}rem`,
+  breakSize: ({theme}, bp, pos) =>
+    theme.breakpoints[bp] -
+    (pos === 'max' ? maxClip : 0) +
+    (pos && pos !== 'rem' ? 'em' : 'rem'),
+  rpx: ({theme: {baseline}}, n = 0) => `${n / baseline}rem`,
 
   // is
   is: createIs('every', true),
@@ -26,25 +30,8 @@ const api = {
   isSome: createIs('some', true),
   isSomeNot: createIs('some', false),
 
-  // transition
-  linear: ({theme: {fx}}, s = 0, d = 0) =>
-    `${s * fx.speed}s linear ${d * fx.delay}s`,
-  easeIn: ({theme: {fx}}, s = 0, d = 0) =>
-    `${s * fx.speed}s ease-in ${d * fx.delay}s`,
-  easeOut: ({theme: {fx}}, s = 0, d = 0) =>
-    `${s * fx.speed}s ease-out ${d * fx.delay}s`,
-  easeInOut: ({theme: {fx}}, s = 0, d = 0) =>
-    `${s * fx.speed}s ease-in-out ${d * fx.delay}s`,
-
-  // shadow
-  shadow: ({theme: {fx}}, b = 0, s = 0) =>
-    `${b * fx.blur}rem ${s * fx.spread}rem`,
-  outset: ({theme: {fx}}, b = 0, s = 0) =>
-    `0 0 ${b * fx.outset.blur}rem ${s * fx.outset.spread}rem`,
-  inset: ({theme: {fx}}, b = 0, s = 0) =>
-    `inset 0 0 ${b * fx.inset.blur}rem ${s * fx.inset.spread}rem`,
-  outline: ({theme: {fx}}, b = 0, s = 0) =>
-    `0 0 ${b * fx.outline.blur}rem ${s * fx.outline.spread}rem`,
+  // fx
+  ...fxFns,
 };
 
 const styledApi = Object.keys(api).reduce((acc, key) => ({
@@ -52,6 +39,8 @@ const styledApi = Object.keys(api).reduce((acc, key) => ({
 }), {});
 
 // export
+
+export * from './themeCache';
 
 export const bindThemeToApi = (theme) =>
   Object.keys(api).reduce((acc, key) => ({

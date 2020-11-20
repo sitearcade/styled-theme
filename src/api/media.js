@@ -1,31 +1,23 @@
 // import
 
-import {map, memoizeWith, equals, is} from 'ramda';
+import {is} from 'ramda';
+
+// vars
+
+export const maxClip = 0.00125;
 
 // fns
 
-const clipMax = (remPx, v) => v - (0.02 / remPx) ?? null;
-
-const getMediaRanges = memoizeWith(equals, ([bps, remPx]) => {
-  const clip = 0.02 / remPx;
-  const mins = map((v) => v ?? null, bps);
-  const maxs = map((v) => v - clip ?? null, bps);
-
-  return [mins, maxs];
-});
+const isNumber = is(Number);
 
 // export
 
-const media = ({theme: {remPx, breakpoints: bps}}, min = null, max = null) => {
-  const [mins, maxs] = getMediaRanges([bps, remPx]);
+export default function media({theme: {breakpoints}}, min = null, max = null) {
+  min = isNumber(min) ? min : breakpoints[min];
+  max = isNumber(max) ? max : breakpoints[max];
 
-  min = is(Number, min) ? min : mins[min];
-  max = is(Number, max) ? clipMax(remPx, max) : maxs[max];
-
-  return min && !max ? `@media (min-width: ${min}em)` :
-    !min && max ? `@media (max-width: ${max}em)` :
-    min && max ? `@media (min-width: ${min}em) and (max-width: ${max}em)` :
-    '@media ()';
-};
-
-export default media;
+  return `@media (${[
+    min && `min-width: ${min}em`,
+    max && `max-width: ${max - maxClip}em`,
+  ].filter(Boolean).join(') and (')})`;
+}

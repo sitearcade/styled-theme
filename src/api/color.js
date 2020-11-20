@@ -1,63 +1,53 @@
 // import
 
-import {mix, transparentize} from 'polished';
-import {is, clamp, path} from 'ramda';
+import {transparentize} from 'polished';
+import * as R from 'ramda';
 
+import {lch2hex, hex2lch} from './convertColor';
+import {themeCache} from './themeCache';
 import {splitDots} from './utils';
 
-// fns
+// vars
 
-const getColor = (props, loc, def) =>
-  path(['theme', 'color', ...loc], props) ?? def;
-
-const fromColors = (props, col, alphaOrDef) => (
-  is(Number, alphaOrDef) ?
-    transparentize(1 - alphaOrDef, getColor(props, col)) :
-    getColor(props, col, alphaOrDef)
-);
-
-const reduceNear = (step) => (acc, key) => ({
-  below: key > step ? acc.below :
-  acc.below && key < acc.below ? acc.below : key,
-  above: key < step ? acc.above :
-  acc.above && key > acc.above ? acc.above : key,
-});
-
-const getNearest = (step, pal) =>
-  Object.keys(pal)
-    .map(parseFloat)
-    .reduce(reduceNear(step), {below: 0, above: 100});
-
-const mixStep = (step, pal) => {
-  step = parseFloat(clamp(0, 100, step));
-  const {below, above} = getNearest(step, pal);
-
-  return step === 0 ? '#000000' :
-    step === 100 ? '#ffffff' :
-    mix(
-      1 - ((step - below) / (above - below)),
-      pal[below] ?? '#000000',
-      pal[above] ?? '#ffffff',
-    );
-};
-
-const fromPalette = (props, [pal, step], alphaOrDef) => {
-  const palette = path(['theme', 'palette', pal], props) ?? {};
-  const res = palette[step] ?? mixStep(step, palette) ?? null;
-
-  return res && is(Number, alphaOrDef) ?
-    transparentize(1 - alphaOrDef, res) :
-    res ?? alphaOrDef ?? null;
-};
+const alphas = ['white', 'black'];
 
 // export
 
-const color = (props, col, alphaOrDef) => {
-  col = splitDots(col);
+export function tweakColor(base, {a, ...lch} = {}) {
+  base ??= '#000000';
+  const key = [base, a, lch.l, lch.c, lch.h].join('-');
+  const found = themeCache.get(key);
 
-  return col.length === 1 ?
-    fromColors(props, col, alphaOrDef) :
-    fromPalette(props, col, alphaOrDef);
-};
+  if (found) {
+    return found;
+  }
 
-export default color;
+  base = R.isEmpty(lch) ? base :
+    lch2hex({...hex2lch(base), ...lch});
+  base = R.isNil(a) ? base :
+    transparentize(1 - a, base);
+
+  return themeCache.set(key, base);
+}
+
+export default function color({theme}, req, mod = {}) {
+  if (R.type(req) === 'Object') {
+    return tweakColor('#000000', req);
+  }
+
+  const [col, adj] = splitDots(req);
+  let base = adj ? theme.palette[col][adj] : theme.color[col];
+  mod = R.is(Number, mod) ? {a: mod} : mod;
+
+  if (!base) {
+    base = theme.color[col];
+
+    if (alphas.includes(col)) {
+      mod = {a: parseFloat(adj) / 100, ...mod};
+    } else {
+      mod = {l: parseFloat(adj), ...mod};
+    }
+  }
+
+  return R.isNil(base) || R.isEmpty(mod) ? base : tweakColor(base, mod);
+}

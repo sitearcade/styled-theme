@@ -1,11 +1,7 @@
-// import
-
-import palette from './defaultPalette';
-
 // export
 
 export default {
-  remPx: 16,
+  baseline: 16,
 
   breakpoints: {
     xxs: 18,
@@ -19,33 +15,49 @@ export default {
     xxl: 90,
   },
 
+  layout: {
+    headerHeight: '3.75rem',
+  },
+
   fx: {
     speed: 0.1,
     delay: 0.1,
+
     blur: 0.125,
     spread: 0.0625,
-
-    outset: {blur: 0.25, spread: 0.0625},
-    inset: {blur: 0.25, spread: 0.0625},
-    outline: {blur: 0.0625, spread: 0.0625},
   },
 
-  fontFam: {
-    serif: 'Georgia, Times New Roman, serif',
-    sans: 'Roboto, Lato, Open Sans, sans-serif',
+  font: {
+    serif: 'serif',
+    sans: 'sans-serif',
     mono: 'FiraCode-Retina, Fira Code, Menlo, Monaco, monospace',
+
+    head: 'serif',
+    body: 'sans-serif',
+    logo: 'cursive',
   },
 
   color: {
-    auto: 'auto',
-    inherit: 'inherit',
-    transparent: 'transparent',
-    current: 'currentColor',
+    brand: '#7f7f7f',
 
+    light: '#ffffff',
+    pale: '#cfcfcf',
+    prime: '#7f7f7f',
+    dark: '#3f3f3f',
+    shade: '#000000',
+
+    // palette alpha
     white: '#ffffff',
     black: '#000000',
-  },
 
-  palette,
+    // palette lightness
+    gray: '#7f7f7f',
+    red: '#ff0000',
+    orange: '#ff9900',
+    yellow: '#ffff00',
+    green: '#00ff00',
+    blue: '#0099ff',
+    purple: '#990099',
+  },
 };
 

@@ -41,8 +41,11 @@
     "prepublishOnly": "npm run clean && npm run build",
     "postpublish": "git push origin --all; git push origin --tags"
   },
-  "dependencies": {},
+  "dependencies": {
+    "color-space": "1.16.0"
+  },
   "peerDependencies": {
+    "@csstools/convert-colors": ">=2.0.0",
     "polished": ">=4.0.3",
     "prop-types": ">=15.7.2",
     "ramda": ">=0.27.1",
@@ -52,9 +55,10 @@
   },
   "devDependencies": {
     "@babel/core": "7.12.3",
+    "@csstools/convert-colors": "2.0.0",
     "@sitearcade/babel-preset": "0.3.0",
     "@sitearcade/browserslist-config": "0.2.0",
-    "@sitearcade/eslint-config": "0.2.8",
+    "@sitearcade/eslint-config": "0.2.9",
     "@sitearcade/jest-preset": "0.4.0",
     "babel-eslint": "11.0.0-beta.2",
     "eslint": "7.13.0",
