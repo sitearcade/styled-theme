@@ -1,10 +1,9 @@
 // import
 
-import {transparentize} from 'polished';
 import * as R from 'ramda';
 
-import {lch2hex, hex2lch} from './convertColor';
 import {themeCache} from './themeCache';
+import {tweakColor as tweak} from './tweakColor';
 import {splitDots} from './utils';
 
 // vars
@@ -13,21 +12,15 @@ const alphas = ['white', 'black'];
 
 // export
 
-export function tweakColor(base, {a, ...lch} = {}) {
-  base ??= '#000000';
-  const key = [base, a, lch.l, lch.c, lch.h].join('-');
+export function tweakColor(base = '#000000', mod = {}) {
+  const key = [base, mod.a, mod.l, mod.c, mod.h].join('-');
   const found = themeCache.get(key);
 
   if (found) {
     return found;
   }
 
-  base = R.isEmpty(lch) ? base :
-    lch2hex({...hex2lch(base), ...lch});
-  base = R.isNil(a) ? base :
-    transparentize(1 - a, base);
-
-  return themeCache.set(key, base);
+  return themeCache.set(key, tweak(base, mod));
 }
 
 export default function color({theme}, req, mod = {}) {
