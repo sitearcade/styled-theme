@@ -1,4 +1,7 @@
 // export
 
 export * from './api';
-export * from './styled';
+export * from './useTheme';
+export * from './StyleVars';
+export * from './Type';
+

@@ -2,8 +2,9 @@
 
 // import
 
+import normalizeTheme from '../useTheme/normalizeTheme';
+
 import {makeStyleVars} from './GlobalStyleVars';
-import normalizeTheme from './normalizeTheme';
 
 // test
 

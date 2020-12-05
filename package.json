@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@csstools/convert-colors": ">=2.0.0",
-    "polished": ">=4.0.3",
+    "polished": ">=4.0.5",
     "prop-types": ">=15.7.2",
     "ramda": ">=0.27.1",
     "react": ">=17.0.1",
@@ -51,13 +51,13 @@
     "styled-components": ">=5.2.1"
   },
   "devDependencies": {
-    "@babel/core": "7.12.3",
-    "@sitearcade/babel-preset": "0.3.0",
+    "@babel/core": "7.12.9",
+    "@sitearcade/babel-preset": "0.3.1",
     "@sitearcade/browserslist-config": "0.2.0",
     "@sitearcade/eslint-config": "0.2.9",
-    "@sitearcade/jest-preset": "0.4.0",
+    "@sitearcade/jest-preset": "0.4.2",
     "babel-eslint": "11.0.0-beta.2",
-    "eslint": "7.13.0",
+    "eslint": "7.15.0",
     "eslint-import-resolver-lerna": "2.0.0",
     "eslint-plugin-babel": "5.3.1",
     "eslint-plugin-better-styled-components": "1.1.2",
