@@ -2,6 +2,6 @@
 
 export * from './api';
 export * from './useTheme';
-export * from './StyleVars';
+export * from './GlobalStyles';
 export * from './Type';
 
