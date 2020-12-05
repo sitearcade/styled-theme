@@ -2,7 +2,7 @@
 
 import {createGlobalStyle} from 'styled-components';
 
-import {color, fontFam, get, rpx} from '@sitearcade/styled-theme';
+import {color, fontFam, get, rpx} from '../api';
 
 import {Normalize} from './Normalize';
 
