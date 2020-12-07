@@ -52,7 +52,7 @@ const BasicStyles = createGlobalStyle`
   /* styles */
 
   html {
-    font-size: ${get('remPx')}px;
+    font-size: ${get('baseline')}px;
   }
 
   body {

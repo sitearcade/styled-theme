@@ -6,7 +6,7 @@ import media from './media';
 
 const props = {
   theme: {
-    remPx: 16,
+    baseline: 16,
     breakpoints: {
       xxs: 18,
       xs: 27,
