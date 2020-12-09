@@ -42,20 +42,21 @@
     "postpublish": "git push origin --all; git push origin --tags"
   },
   "dependencies": {
-    "@csstools/convert-colors": ">=2.0.0",
-    "polished": ">=4.0.5",
-    "prop-types": ">=15.7.2",
-    "ramda": ">=0.27.1",
-    "react": ">=17.0.1",
-    "react-dom": ">=17.0.1",
-    "styled-components": ">=5.2.1"
+    "@csstools/convert-colors": "^2.0.0",
+    "@sitearcade/react-hooks": "^0.2.2",
+    "polished": "^4.0.5",
+    "prop-types": "^15.7.2",
+    "ramda": "^0.27.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "@babel/core": "7.12.9",
     "@sitearcade/babel-preset": "0.3.1",
     "@sitearcade/browserslist-config": "0.2.0",
     "@sitearcade/eslint-config": "0.2.9",
-    "@sitearcade/jest-preset": "0.4.2",
+    "@sitearcade/jest-preset": "1.0.1",
     "babel-eslint": "11.0.0-beta.2",
     "eslint": "7.15.0",
     "eslint-import-resolver-lerna": "2.0.0",
