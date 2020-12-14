@@ -42,6 +42,7 @@ export const TypeFormStyles = createGlobalStyle`
       font-weight: 300;
     }
 
+    & .input,
     & input,
     & textarea,
     & select {
@@ -49,6 +50,7 @@ export const TypeFormStyles = createGlobalStyle`
       border-radius: 0.125rem;
     }
 
+    & .input,
     & input:not([type]),
     & input[type="text"],
     & input[type="password"],
