@@ -17,6 +17,11 @@ export const TypeFormStyles = createGlobalStyle`
       border-radius: 0.25rem;
       margin: 0 0 1.5rem;
       border: 1px solid ${color('gray.50')};
+      padding: 0.25rem 1rem 1rem;
+
+      & *:last-child {
+        margin-bottom: 0;
+      }
     }
 
     & legend {
