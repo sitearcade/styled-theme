@@ -8,15 +8,8 @@ import {fontFam, color, rpx} from '../../api';
 
 export const TypeBlockStyles = createGlobalStyle`
   .Type {
-    & div,
-    & nav,
-    & header,
-    & footer,
-    & main,
-    & aside,
-    & article,
-    & section {
-      margin: 0;
+    & main {
+      display: block;
     }
 
     & p,

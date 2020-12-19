@@ -19,7 +19,7 @@ export const TypeFormStyles = createGlobalStyle`
       border: 1px solid ${color('gray.50')};
       padding: 0.25rem 1rem 1rem;
 
-      & *:last-child {
+      & > *:last-child {
         margin-bottom: 0;
       }
     }
