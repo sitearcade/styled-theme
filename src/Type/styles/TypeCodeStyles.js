@@ -8,20 +8,20 @@ import {color, fontFam, rpx} from '../../api';
 
 export const TypeCodeStyles = createGlobalStyle`
   .Type {
-    & pre,
-    & code,
-    & samp,
-    & kbd,
-    & var {
+    pre,
+    code,
+    samp,
+    kbd,
+    var {
       font-family: ${fontFam('mono')};
       font-variant-ligatures: common-ligatures;
       font-style: normal;
     }
 
-    & code,
-    & samp,
-    & kbd,
-    & var {
+    code,
+    samp,
+    kbd,
+    var {
       font-size: 0.75em;
       border-width: ${rpx(1)};
       border-style: solid;
@@ -31,27 +31,27 @@ export const TypeCodeStyles = createGlobalStyle`
       top: -0.125rem;
     }
 
-    & code {
+    code {
       background-color: ${color('gray.80')};
       border-color: ${color('gray.70')};
     }
 
-    & samp {
+    samp {
       background-color: ${color('harvest.85')};
       border-color: ${color('harvest.75')};
     }
 
-    & kbd {
+    kbd {
       background-color: ${color('maizola.90')};
       border-color: ${color('maizola.80')};
     }
 
-    & var {
+    var {
       background-color: ${color('burnout.80')};
       border-color: ${color('burnout.70')};
     }
 
-    & pre {
+    pre {
       padding: 0.5rem;
       margin: 0 0 1.5rem;
       border-left: 0.25rem solid ${color('pacific')};

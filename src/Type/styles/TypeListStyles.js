@@ -8,7 +8,7 @@ import {color} from '../../api';
 
 export const TypeListStyles = createGlobalStyle`
   .Type {
-    & li {
+    li {
       position: relative;
 
       &::before {
@@ -16,21 +16,21 @@ export const TypeListStyles = createGlobalStyle`
         position: absolute;
       }
 
-      & ul, & ol {
+      ul, ol {
         margin-bottom: 0;
       }
     }
 
-    & ul,
-    & ol {
+    ul,
+    ol {
       list-style: none;
       padding-left: 2rem;
       margin: 0 0 1.5rem;
       font-size: 1.125rem;
     }
 
-    & ul {
-      & > li::before {
+    ul {
+      > li::before {
         content: '';
         background-color: ${color('pacific')};
         border-radius: 100rem;
@@ -41,10 +41,10 @@ export const TypeListStyles = createGlobalStyle`
       }
     }
 
-    & ol {
+    ol {
       counter-reset: li;
 
-      & > li::before {
+      > li::before {
         content: counter(li) '.';
         counter-increment: li;
         color: ${color('pacific')};
@@ -58,12 +58,12 @@ export const TypeListStyles = createGlobalStyle`
       }
     }
 
-    & dl {
+    dl {
       position: relative;
       margin-bottom: 1.5rem;
     }
 
-    & dt {
+    dt {
       font-weight: 600;
 
       &::after {
@@ -71,10 +71,10 @@ export const TypeListStyles = createGlobalStyle`
       }
     }
 
-    & dd {
+    dd {
       margin: 0 0 0 1.5rem;
 
-      & + dt {
+      + dt {
         margin-top: 1rem;
       }
     }

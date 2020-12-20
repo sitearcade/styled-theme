@@ -8,7 +8,7 @@ import {color, rpx} from '../../api';
 
 export const TypeTableStyles = createGlobalStyle`
   .Type {
-    & table {
+    table {
       font-size: 1rem;
       line-height: calc(2rem - ${rpx(1)});
       height: auto;
@@ -19,7 +19,7 @@ export const TypeTableStyles = createGlobalStyle`
       z-index: 1;
     }
 
-    & td, & th {
+    td, th {
       padding: 0 0.5rem;
       border-right: ${rpx(1)} solid ${color('gray.70')};
       text-align: left;
@@ -41,35 +41,35 @@ export const TypeTableStyles = createGlobalStyle`
       }
     }
 
-    & th {
+    th {
       font-weight: 600;
     }
 
-    & thead {
-      & td, & th {
+    thead {
+      td, th {
         font-weight: 600;
         border-bottom: ${rpx(1)} solid ${color('gray.40')};
       }
     }
 
-    & tbody {
-      & td, & th {
+    tbody {
+      td, th {
         border-bottom: ${rpx(1)} solid ${color('gray.70')};
       }
 
-      & tr:last-child td {
+      tr:last-child td {
         border-bottom: ${rpx(1)} solid ${color('gray.40')};
       }
     }
 
-    & tfoot {
-      & td, & th {
+    tfoot {
+      td, th {
         font-weight: 300;
         border-bottom: ${rpx(1)} solid ${color('gray.40')};
       }
     }
 
-    & caption {
+    caption {
       caption-side: bottom;
       color: ${color('gray.50')};
       font-size: 0.875rem;

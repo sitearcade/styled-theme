@@ -8,7 +8,7 @@ import {color, layout, fontFam, rpx} from '../../api';
 
 export const TypeLinkStyles = createGlobalStyle`
   .Type {
-    & button.link {
+    button.link {
       appearance: none;
       background: none;
       display: inline;
@@ -40,7 +40,7 @@ export const TypeLinkStyles = createGlobalStyle`
       }
     }
 
-    & a:not(.button):not(.anchor):not(.bare):not([name]) {
+    a:not(.button):not(.anchor):not(.bare):not([name]) {
       /* no link */
       &:not([href]) {}
 
@@ -72,8 +72,8 @@ export const TypeLinkStyles = createGlobalStyle`
       }
     }
 
-    & button.link,
-    & a:not(.button):not(.unstyled):not([name]) {
+    button.link,
+    a:not(.button):not(.unstyled):not([name]) {
       cursor: pointer;
       padding: 0 0.125rem;
       background-image: linear-gradient(
@@ -179,13 +179,13 @@ export const TypeLinkStyles = createGlobalStyle`
     }
 
     /* nav anchors */
-    & a.anchor:not([name]):link {
+    a.anchor:not([name]):link {
       background-size: 100% 0;
     }
 
     /* anchor targets */
-    & h1, & h2, & h3, & h4, & h5, & h6,
-    & a[name]:target {
+    h1, h2, h3, h4, h5, h6,
+    a[name]:target {
       &::before {
         content: '';
         display: block;

@@ -8,74 +8,74 @@ import {color} from '../../api';
 
 export const TypeInlineStyles = createGlobalStyle`
   .Type {
-    & span {
+    span {
       display: inline;
     }
 
-    & em,
-    & i,
-    & cite,
-    & dfn {
+    em,
+    i,
+    cite,
+    dfn {
       font-style: italic;
     }
 
-    & strong,
-    & b {
+    strong,
+    b {
       font-weight: 500;
     }
 
-    & u {
+    u {
       text-decoration: ${color('pacific')} wavy underline;
       text-decoration-skip-ink: none;
     }
 
-    & ins {
+    ins {
       color: ${color('green.50')};
       text-decoration: dashed underline;
     }
 
-    & del {
+    del {
       color: ${color('burnout.50')};
       text-decoration: line-through;
     }
 
-    & mark {
+    mark {
       background-color: ${color('maizola.85')};
       padding: 0 0.25rem;
       border-radius: 0.125rem;
     }
 
-    & s {
+    s {
       text-decoration: line-through;
     }
 
-    & sub,
-    & sup {
+    sub,
+    sup {
       font-size: 0.75em;
       padding: 0 0.125rem;
       line-height: 0;
       bottom: 0;
     }
 
-    & sub {
+    sub {
       vertical-align: sub;
     }
 
-    & sup {
+    sup {
       vertical-align: super;
     }
 
-    & small {
+    small {
       font-size: 1rem;
     }
 
-    & time,
-    & abbr {
+    time,
+    abbr {
       text-decoration: dotted underline;
     }
 
-    & q {
-      & q {
+    q {
+      q {
         margin-left: 0.125rem;
         margin-right: 0.125rem;
       }

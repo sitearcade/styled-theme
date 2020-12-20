@@ -8,24 +8,24 @@ import {fontFam, color, rpx} from '../../api';
 
 export const TypeBlockStyles = createGlobalStyle`
   .Type {
-    & main {
+    main {
       display: block;
     }
 
-    & p,
-    & address {
+    p,
+    address {
       margin: 0 0 1.5rem;
       overflow-wrap: break-word;
       word-wrap: break-word;
       hyphens: auto;
     }
 
-    & address {
+    address {
       display: block;
       font-style: normal;
     }
 
-    & blockquote {
+    blockquote {
       margin: 3rem 1.5rem 3rem 4.5rem;
       position: relative;
 
@@ -52,7 +52,7 @@ export const TypeBlockStyles = createGlobalStyle`
         }
       }
 
-      & cite:last-child {
+      cite:last-child {
         &::before {
           content: '— ';
           color: ${color('pacific')};
@@ -60,27 +60,27 @@ export const TypeBlockStyles = createGlobalStyle`
       }
     }
 
-    & details {
+    details {
       display: block;
       margin: 0 0 1.5rem;
       border-top: 0.125rem dashed ${color('pacific')};
       border-bottom: 0.125rem dashed ${color('pacific')};
 
-      & :nth-child(2) {
+      :nth-child(2) {
         margin-top: 0;
       }
 
-      & :last-child {
+      :last-child {
         margin-bottom: 0;
       }
     }
 
-    & summary {
+    summary {
       cursor: pointer;
       font-weight: 500;
     }
 
-    & hr {
+    hr {
       border: 0;
       height: 0.75rem;
       line-height: 0.75rem;

@@ -8,63 +8,63 @@ import {color, outset} from '../../api';
 
 export const TypeMediaStyles = createGlobalStyle`
   .Type {
-    & img,
-    & picture,
-    & svg,
-    & audio,
-    & video,
-    & canvas,
-    & object,
-    & embed {
+    img,
+    picture,
+    svg,
+    audio,
+    video,
+    canvas,
+    object,
+    embed {
       display: block;
       height: auto;
       margin: 0 0 1.5rem;
       max-width: 100%;
     }
 
-    & p {
-      & img,
-      & picture,
-      & svg {
+    p {
+      img,
+      picture,
+      svg {
         display: inline-block;
       }
     }
 
-    & img {
+    img {
       border-radius: 0.25rem;
     }
 
-    & picture {
+    picture {
       border-radius: 0.25rem;
       overflow: hidden;
 
-      & img {
+      img {
         margin: 0;
       }
     }
 
-    & audio::-webkit-media-controls-panel, 
-    & video::-webkit-media-controls-panel {
+    audio::-webkit-media-controls-panel, 
+    video::-webkit-media-controls-panel {
       background-color: ${color('gray.70')};
     }
 
-    & audio {
+    audio {
       height: 2rem;
       width: 100%;
     }
 
-    & video {
+    video {
       width: 100%;
     }
 
-    & .remark-oembed-inline {
+    .remark-oembed-inline {
       position: relative;
       padding-bottom: 67.5%;
       margin-bottom: 1.5rem;
       overflow: hidden;
       height: 0;
 
-      & iframe {
+      iframe {
         position: absolute;
         top: 0;
         left: 0;
@@ -73,7 +73,7 @@ export const TypeMediaStyles = createGlobalStyle`
       }
     }
 
-    & figure {
+    figure {
       display: block;
       margin: 0 0 1.5rem;
       max-width: 100%;
@@ -82,13 +82,13 @@ export const TypeMediaStyles = createGlobalStyle`
       background-color: ${color('white')};
       box-shadow: ${outset(1)} ${color('gray.60')};
 
-      & > *:first-child {
+      > *:first-child {
         margin-bottom: 0;
         border-radius: 0;
       }
     }
 
-    & figcaption {
+    figcaption {
       display: block;
       color: ${color('gray.50')};
       padding: 0 0.5rem;

@@ -8,11 +8,11 @@ import {color, linear, fontFam, rpx, outset} from '../../api';
 
 export const TypeButtonStyles = createGlobalStyle`
   .Type {
-    & a.button,
-    & button:not(.link),
-    & input[type="button"],
-    & input[type="submit"],
-    & input[type="reset"] {
+    a.button,
+    button:not(.link),
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"] {
       appearance: none;
       align-items: flex-start;
       display: inline-block;
@@ -183,11 +183,11 @@ export const TypeButtonStyles = createGlobalStyle`
           ${outset(1)} ${color('gray.40', 0.5)};
       }
 
-      & + a.button,
-      & + button:not(.link),
-      & + input[type="button"],
-      & + input[type="submit"],
-      & + input[type="reset"] {
+      + a.button,
+      + button:not(.link),
+      + input[type="button"],
+      + input[type="submit"],
+      + input[type="reset"] {
         margin-left: 0.5rem;
       }
     }
