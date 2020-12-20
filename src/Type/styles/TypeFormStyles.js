@@ -8,38 +8,38 @@ import {color, linear, fontFam, rpx, outset} from '../../api';
 
 export const TypeFormStyles = createGlobalStyle`
   .Type {
-    & form {
+    form {
       display: block;
       margin: 0;
     }
 
-    & fieldset {
+    fieldset {
       border-radius: 0.25rem;
       margin: 0 0 1.5rem;
       border: 1px solid ${color('gray.50')};
       padding: 0.25rem 1rem 1rem;
 
-      & > *:last-child {
+      > :last-child {
         margin-bottom: 0;
       }
     }
 
-    & legend {
+    legend {
       padding: 0 0.25rem;
     }
 
-    & .required {
+    .required {
       color: ${color('burnout')};
     }
 
-    & label:not(.option) {
+    label:not(.option) {
       display: block;
       font-size: 1rem;
       line-height: 1.5rem;
       font-weight: 400;
     }
 
-    & label.option {
+    label.option {
       display: block;
       font-size: 1.25rem;
       line-height: 2rem;
@@ -47,32 +47,32 @@ export const TypeFormStyles = createGlobalStyle`
       font-weight: 300;
     }
 
-    & .input,
-    & input,
-    & textarea,
-    & select {
+    .input,
+    input,
+    textarea,
+    select {
       color-adjust: exact;
       border-radius: 0.125rem;
     }
 
-    & .input,
-    & input:not([type]),
-    & input[type="text"],
-    & input[type="password"],
-    & input[type="url"],
-    & input[type="email"],
-    & input[type="tel"],
-    & input[type="number"],
-    & input[type="color"],
-    & input[type="file"],
-    & input[type="date"],
-    & input[type="time"],
-    & input[type="datetime-local"],
-    & input[type="month"],
-    & input[type="week"],
-    & input[type="search"],
-    & textarea,
-    & select {
+    .input,
+    input:not([type]),
+    input[type="text"],
+    input[type="password"],
+    input[type="url"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="color"],
+    input[type="file"],
+    input[type="date"],
+    input[type="time"],
+    input[type="datetime-local"],
+    input[type="month"],
+    input[type="week"],
+    input[type="search"],
+    textarea,
+    select {
       appearance: none;
       background-color: ${color('white')};
       border: ${rpx(1)} solid ${color('gray.60')};
@@ -134,13 +134,13 @@ export const TypeFormStyles = createGlobalStyle`
       }
     }
 
-    & input[type="search"] {
+    input[type="search"] {
       border-radius: 100rem;
       padding-left: 1rem;
       padding-right: 1rem;
     }
 
-    & input[type="file"] {
+    input[type="file"] {
       padding: 0.25rem;
 
       &::-webkit-file-upload-button {
@@ -148,7 +148,7 @@ export const TypeFormStyles = createGlobalStyle`
       }
     }
 
-    & input[type="color"] {
+    input[type="color"] {
       padding: 0.25rem;
 
       &::-webkit-color-swatch-wrapper {
@@ -161,21 +161,41 @@ export const TypeFormStyles = createGlobalStyle`
       }
     }
 
-    & input[type="range"] {
+    input[type="range"] {
       display: block;
       width: 100%;
       height: 2.5rem;
       margin: 0 0 1.5rem;
     }
 
-    & textarea {
+    textarea {
       resize: vertical;
       min-height: 5rem;
     }
 
-    & input[type='checkbox'],
-    & input[type='radio'] {
+    input[type='checkbox'],
+    input[type='radio'] {
       display: inline-block;
+    }
+
+    .select {
+      position: relative;
+
+      select {
+        padding-right: 1.75rem;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 0.75rem;
+        height: 1.25rem;
+        right: 0.5rem;
+        top: 0.625rem;
+        clip-path: polygon(50% 0, 100% 40%, 50% 40%, 50% 60%, 100% 60%, 50% 100%, 0 60%, 50% 60%, 50% 40%, 0 40%);
+        background-color: ${color('gray.30')};
+      }
     }
   }
 `;
