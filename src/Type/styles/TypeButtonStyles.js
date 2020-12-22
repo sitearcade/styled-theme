@@ -27,56 +27,56 @@ export const TypeButtonStyles = createGlobalStyle`
       font-size: 1rem;
       transition: box-shadow ${linear(1)}, background-color ${linear(1)};
       color: ${color('black')};
-      background-color: ${color('pacific.70')};
-      box-shadow: 0 ${rpx(1)} 0 ${color('pacific.50')}, 
-        ${outset(1)} ${color('pacific.40', 0.5)};
+      background-color: ${color('blue.70')};
+      box-shadow: 0 ${rpx(1)} 0 ${color('blue.50')}, 
+        ${outset(1)} ${color('blue.40', 0.5)};
 
       &:hover {
-        background-color: ${color('pacific.75')};
-        box-shadow: 0 0.125rem 0 ${color('pacific.50')}, 
-          ${outset(1)} ${color('pacific.40', 0.5)};
+        background-color: ${color('blue.75')};
+        box-shadow: 0 0.125rem 0 ${color('blue.50')}, 
+          ${outset(1)} ${color('blue.40', 0.5)};
       }
 
       &:active {
-        background-color: ${color('pacific.80')};
-        box-shadow: 0 0.125rem 0 ${color('pacific.60')}, 
-          ${outset(1)} ${color('pacific.40', 0.5)};
+        background-color: ${color('blue.80')};
+        box-shadow: 0 0.125rem 0 ${color('blue.60')}, 
+          ${outset(1)} ${color('blue.40', 0.5)};
       }
 
       &.teal {
         color: ${color('white')};
-        background-color: ${color('pacific')};
-        box-shadow: 0 ${rpx(1)} 0 ${color('pacific.35')}, 
-          ${outset(1)} ${color('pacific.30', 0.5)};
+        background-color: ${color('blue')};
+        box-shadow: 0 ${rpx(1)} 0 ${color('blue.35')}, 
+          ${outset(1)} ${color('blue.30', 0.5)};
 
         &:hover {
-          background-color: ${color('pacific.57')};
-          box-shadow: 0 0.125rem 0 ${color('pacific.40')}, 
-            ${outset(1)} ${color('pacific.35', 0.5)};
+          background-color: ${color('blue.57')};
+          box-shadow: 0 0.125rem 0 ${color('blue.40')}, 
+            ${outset(1)} ${color('blue.35', 0.5)};
         }
 
         &:active {
-          background-color: ${color('pacific.65')};
-          box-shadow: 0 0.125rem 0 ${color('pacific.45')}, 
-            ${outset(1)} ${color('pacific.40', 0.5)};
+          background-color: ${color('blue.65')};
+          box-shadow: 0 0.125rem 0 ${color('blue.45')}, 
+            ${outset(1)} ${color('blue.40', 0.5)};
         }
       }
 
       &.blue {
-        background-color: ${color('prussia.70')};
-        box-shadow: 0 ${rpx(1)} 0 ${color('prussia.50')}, 
-          ${outset(1)} ${color('prussia.40', 0.5)};
+        background-color: ${color('purple.70')};
+        box-shadow: 0 ${rpx(1)} 0 ${color('purple.50')}, 
+          ${outset(1)} ${color('purple.40', 0.5)};
 
         &:hover {
-          background-color: ${color('prussia.75')};
-          box-shadow: 0 0.125rem 0 ${color('prussia.50')}, 
-            ${outset(1)} ${color('prussia.40', 0.5)};
+          background-color: ${color('purple.75')};
+          box-shadow: 0 0.125rem 0 ${color('purple.50')}, 
+            ${outset(1)} ${color('purple.40', 0.5)};
         }
 
         &:active {
-          background-color: ${color('prussia.80')};
-          box-shadow: 0 0.125rem 0 ${color('prussia.60')}, 
-            ${outset(1)} ${color('prussia.40', 0.5)};
+          background-color: ${color('purple.80')};
+          box-shadow: 0 0.125rem 0 ${color('purple.60')}, 
+            ${outset(1)} ${color('purple.40', 0.5)};
         }
       }
 
@@ -99,57 +99,57 @@ export const TypeButtonStyles = createGlobalStyle`
       }
 
       &.yellow {
-        background-color: ${color('maizola')};
-        box-shadow: 0 ${rpx(1)} 0 ${color('maizola.60')}, 
-          ${outset(1)} ${color('maizola.45', 0.5)};
+        background-color: ${color('yellow')};
+        box-shadow: 0 ${rpx(1)} 0 ${color('yellow.60')}, 
+          ${outset(1)} ${color('yellow.45', 0.5)};
 
         &:hover {
-          background-color: ${color('maizola.85')};
-          box-shadow: 0 0.125rem 0 ${color('maizola.60')}, 
-            ${outset(1)} ${color('maizola.45', 0.5)};
+          background-color: ${color('yellow.85')};
+          box-shadow: 0 0.125rem 0 ${color('yellow.60')}, 
+            ${outset(1)} ${color('yellow.45', 0.5)};
         }
 
         &:active {
-          background-color: ${color('maizola.90')};
-          box-shadow: 0 0.125rem 0 ${color('maizola.70')}, 
-            ${outset(1)} ${color('maizola.45', 0.5)};
+          background-color: ${color('yellow.90')};
+          box-shadow: 0 0.125rem 0 ${color('yellow.70')}, 
+            ${outset(1)} ${color('yellow.45', 0.5)};
         }
       }
 
       &.orange {
-        background-color: ${color('harvest.70')};
-        box-shadow: 0 ${rpx(1)} 0 ${color('harvest.50')}, 
-          ${outset(1)} ${color('harvest.40', 0.5)};
+        background-color: ${color('orange.70')};
+        box-shadow: 0 ${rpx(1)} 0 ${color('orange.50')}, 
+          ${outset(1)} ${color('orange.40', 0.5)};
 
         &:hover {
-          background-color: ${color('harvest.75')};
-          box-shadow: 0 0.125rem 0 ${color('harvest.50')}, 
-            ${outset(1)} ${color('harvest.40', 0.5)};
+          background-color: ${color('orange.75')};
+          box-shadow: 0 0.125rem 0 ${color('orange.50')}, 
+            ${outset(1)} ${color('orange.40', 0.5)};
         }
 
         &:active {
-          background-color: ${color('harvest.80')};
-          box-shadow: 0 0.125rem 0 ${color('harvest.60')}, 
-            ${outset(1)} ${color('harvest.40', 0.5)};
+          background-color: ${color('orange.80')};
+          box-shadow: 0 0.125rem 0 ${color('orange.60')}, 
+            ${outset(1)} ${color('orange.40', 0.5)};
         }
       }
 
       &.red {
         color: ${color('white')};
-        background-color: ${color('burnout.55')};
-        box-shadow: 0 ${rpx(1)} 0 ${color('burnout.35')}, 
-          ${outset(1)} ${color('burnout.30', 0.5)};
+        background-color: ${color('red.55')};
+        box-shadow: 0 ${rpx(1)} 0 ${color('red.35')}, 
+          ${outset(1)} ${color('red.30', 0.5)};
 
         &:hover {
-          background-color: ${color('burnout.60')};
-          box-shadow: 0 0.125rem 0 ${color('burnout.40')}, 
-            ${outset(1)} ${color('burnout.35', 0.5)};
+          background-color: ${color('red.60')};
+          box-shadow: 0 0.125rem 0 ${color('red.40')}, 
+            ${outset(1)} ${color('red.35', 0.5)};
         }
 
         &:active {
-          background-color: ${color('burnout.65')};
-          box-shadow: 0 0.125rem 0 ${color('burnout.45')}, 
-            ${outset(1)} ${color('burnout.40', 0.5)};
+          background-color: ${color('red.65')};
+          box-shadow: 0 0.125rem 0 ${color('red.45')}, 
+            ${outset(1)} ${color('red.40', 0.5)};
         }
       }
 

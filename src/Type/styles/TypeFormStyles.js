@@ -29,7 +29,7 @@ export const TypeFormStyles = createGlobalStyle`
     }
 
     .required {
-      color: ${color('burnout')};
+      color: ${color('red')};
     }
 
     label:not(.option) {
@@ -109,15 +109,15 @@ export const TypeFormStyles = createGlobalStyle`
       }
 
       &.invalid {
-        border-color: ${color('burnout')};
+        border-color: ${color('red')};
 
         &:hover {
-          box-shadow: ${outset(1)} ${color('burnout.70')};
+          box-shadow: ${outset(1)} ${color('red.70')};
         }
 
         &:focus {
-          border-color: ${color('burnout.50')};
-          box-shadow: ${outset(1)} ${color('burnout.50')};
+          border-color: ${color('red.50')};
+          box-shadow: ${outset(1)} ${color('red.50')};
         }
       }
 

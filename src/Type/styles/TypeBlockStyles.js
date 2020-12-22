@@ -30,7 +30,7 @@ export const TypeBlockStyles = createGlobalStyle`
       position: relative;
 
       &::before {
-        color: ${color('pacific')};
+        color: ${color('blue')};
         content: '“';
         font-family: ${fontFam('serif')};
         font-size: 7rem;
@@ -55,7 +55,7 @@ export const TypeBlockStyles = createGlobalStyle`
       cite:last-child {
         &::before {
           content: '— ';
-          color: ${color('pacific')};
+          color: ${color('blue')};
         }
       }
     }
@@ -63,8 +63,8 @@ export const TypeBlockStyles = createGlobalStyle`
     details {
       display: block;
       margin: 0 0 1.5rem;
-      border-top: 0.125rem dashed ${color('pacific')};
-      border-bottom: 0.125rem dashed ${color('pacific')};
+      border-top: 0.125rem dashed ${color('blue')};
+      border-bottom: 0.125rem dashed ${color('blue')};
 
       :nth-child(2) {
         margin-top: 0;

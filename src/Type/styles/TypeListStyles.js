@@ -32,7 +32,7 @@ export const TypeListStyles = createGlobalStyle`
     ul {
       > li::before {
         content: '';
-        background-color: ${color('pacific')};
+        background-color: ${color('blue')};
         border-radius: 100rem;
         height: 0.375rem;
         width: 0.375rem;
@@ -47,7 +47,7 @@ export const TypeListStyles = createGlobalStyle`
       > li::before {
         content: counter(li) '.';
         counter-increment: li;
-        color: ${color('pacific')};
+        color: ${color('blue')};
         font-size: 0.75rem;
         font-weight: 500;
         font-style: italic;

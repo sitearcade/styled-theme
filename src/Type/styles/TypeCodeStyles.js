@@ -37,24 +37,24 @@ export const TypeCodeStyles = createGlobalStyle`
     }
 
     samp {
-      background-color: ${color('harvest.85')};
-      border-color: ${color('harvest.75')};
+      background-color: ${color('orange.85')};
+      border-color: ${color('orange.75')};
     }
 
     kbd {
-      background-color: ${color('maizola.90')};
-      border-color: ${color('maizola.80')};
+      background-color: ${color('yellow.90')};
+      border-color: ${color('yellow.80')};
     }
 
     var {
-      background-color: ${color('burnout.80')};
-      border-color: ${color('burnout.70')};
+      background-color: ${color('red.80')};
+      border-color: ${color('red.70')};
     }
 
     pre {
       padding: 0.5rem;
       margin: 0 0 1.5rem;
-      border-left: 0.25rem solid ${color('pacific')};
+      border-left: 0.25rem solid ${color('blue')};
       background-color: ${color('gray.80')};
       font-size: 1rem;
       line-height: 1.5rem;

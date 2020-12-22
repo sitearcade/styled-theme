@@ -78,9 +78,9 @@ export const TypeLinkStyles = createGlobalStyle`
       padding: 0 0.125rem;
       background-image: linear-gradient(
         to right, 
-        ${color('maizola')} 0%, 
-        ${color('harvest')} 33%, 
-        ${color('burnout')} 100%
+        ${color('yellow')} 0%, 
+        ${color('orange')} 33%, 
+        ${color('red')} 100%
       );
       background-position: right bottom;
       background-repeat: no-repeat;
@@ -90,18 +90,18 @@ export const TypeLinkStyles = createGlobalStyle`
       &.teal {
         background-image: linear-gradient(
           to right, 
-          ${color('pacific.80')} 0%, 
-          ${color('pacific.70')} 25%, 
-          ${color('pacific.50')} 100%
+          ${color('blue.80')} 0%, 
+          ${color('blue.70')} 25%, 
+          ${color('blue.50')} 100%
         );
       }
 
       &.blue {
         background-image: linear-gradient(
           to right, 
-          ${color('prussia.80')} 0%, 
-          ${color('prussia.70')} 25%, 
-          ${color('prussia.40')} 100%
+          ${color('purple.80')} 0%, 
+          ${color('purple.70')} 25%, 
+          ${color('purple.40')} 100%
         );
       }
 
@@ -117,27 +117,27 @@ export const TypeLinkStyles = createGlobalStyle`
       &.yellow {
         background-image: linear-gradient(
           to right, 
-          ${color('maizola.80')} 0%, 
-          ${color('maizola.70')} 25%, 
-          ${color('maizola.50')} 100%
+          ${color('yellow.80')} 0%, 
+          ${color('yellow.70')} 25%, 
+          ${color('yellow.50')} 100%
         );
       }
 
       &.orange {
         background-image: linear-gradient(
           to right, 
-          ${color('harvest.80')} 0%, 
-          ${color('harvest.70')} 25%, 
-          ${color('harvest.45')} 100%
+          ${color('orange.80')} 0%, 
+          ${color('orange.70')} 25%, 
+          ${color('orange.45')} 100%
         );
       }
 
       &.red {
         background-image: linear-gradient(
           to right, 
-          ${color('burnout.75')} 0%, 
-          ${color('burnout.65')} 25%, 
-          ${color('burnout.35')} 100%
+          ${color('red.75')} 0%, 
+          ${color('red.65')} 25%, 
+          ${color('red.35')} 100%
         );
       }
 

@@ -25,7 +25,7 @@ export const TypeInlineStyles = createGlobalStyle`
     }
 
     u {
-      text-decoration: ${color('pacific')} wavy underline;
+      text-decoration: ${color('blue')} wavy underline;
       text-decoration-skip-ink: none;
     }
 
@@ -35,12 +35,12 @@ export const TypeInlineStyles = createGlobalStyle`
     }
 
     del {
-      color: ${color('burnout.50')};
+      color: ${color('red.50')};
       text-decoration: line-through;
     }
 
     mark {
-      background-color: ${color('maizola.85')};
+      background-color: ${color('yellow.85')};
       padding: 0 0.25rem;
       border-radius: 0.125rem;
     }
