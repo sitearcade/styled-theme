@@ -15,3 +15,4 @@ dist/
 # exclude
 !.github
 !.circleci
+!.storybook

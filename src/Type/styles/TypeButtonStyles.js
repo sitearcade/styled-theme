@@ -43,7 +43,7 @@ export const TypeButtonStyles = createGlobalStyle`
           ${outset(1)} ${color('blue.40', 0.5)};
       }
 
-      &.teal {
+      &.blue {
         color: ${color('white')};
         background-color: ${color('blue')};
         box-shadow: 0 ${rpx(1)} 0 ${color('blue.35')}, 
@@ -62,7 +62,7 @@ export const TypeButtonStyles = createGlobalStyle`
         }
       }
 
-      &.blue {
+      &.purple {
         background-color: ${color('purple.70')};
         box-shadow: 0 ${rpx(1)} 0 ${color('purple.50')}, 
           ${outset(1)} ${color('purple.40', 0.5)};

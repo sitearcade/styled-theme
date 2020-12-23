@@ -15,7 +15,9 @@ export default {
     xxl: 90,
   },
 
-  layout: {},
+  layout: {
+    headerHeight: '3.75rem',
+  },
 
   fx: {
     speed: 0.1,
