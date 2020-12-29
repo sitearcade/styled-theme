@@ -14,8 +14,8 @@
   "sideEffects": false,
   "source": "./src/index.js",
   "main": "./dist/index.js",
-  "exports": "./dist/index.modern.js",
-  "esmodule": "./dist/index.modern.js",
+  "-exports": "./dist/index.modern.js",
+  "-esmodule": "./dist/index.modern.js",
   "module": "./dist/index.module.js",
   "files": [
     "dist"
