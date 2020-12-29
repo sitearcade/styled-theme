@@ -2,8 +2,6 @@
 
 import {createGlobalStyle} from 'styled-components';
 
-import {color} from '../../api';
-
 // styles
 
 export const TypeListStyles = createGlobalStyle`
@@ -32,7 +30,7 @@ export const TypeListStyles = createGlobalStyle`
     ul {
       > li::before {
         content: '';
-        background-color: ${color('blue')};
+        background-color: var(--blue);
         border-radius: 100rem;
         height: 0.375rem;
         width: 0.375rem;
@@ -47,7 +45,7 @@ export const TypeListStyles = createGlobalStyle`
       > li::before {
         content: counter(li) '.';
         counter-increment: li;
-        color: ${color('blue')};
+        color: var(--blue);
         font-size: 0.75rem;
         font-weight: 500;
         font-style: italic;

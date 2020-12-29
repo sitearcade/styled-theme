@@ -2,8 +2,6 @@
 
 import {createGlobalStyle} from 'styled-components';
 
-import {fontFam, color, rpx} from '../../api';
-
 // styles
 
 export const TypeBlockStyles = createGlobalStyle`
@@ -30,9 +28,9 @@ export const TypeBlockStyles = createGlobalStyle`
       position: relative;
 
       &::before {
-        color: ${color('blue')};
+        color: var(--blue);
         content: '“';
-        font-family: ${fontFam('serif')};
+        font-family: var(--font-serif);
         font-size: 7rem;
         left: -3.5rem;
         line-height: 0;
@@ -55,7 +53,7 @@ export const TypeBlockStyles = createGlobalStyle`
       cite:last-child {
         &::before {
           content: '— ';
-          color: ${color('blue')};
+          color: var(--blue);
         }
       }
     }
@@ -63,8 +61,8 @@ export const TypeBlockStyles = createGlobalStyle`
     details {
       display: block;
       margin: 0 0 1.5rem;
-      border-top: 0.125rem dashed ${color('blue')};
-      border-bottom: 0.125rem dashed ${color('blue')};
+      border-top: 0.125rem dashed var(--blue);
+      border-bottom: 0.125rem dashed var(--blue);
 
       :nth-child(2) {
         margin-top: 0;
@@ -93,12 +91,12 @@ export const TypeBlockStyles = createGlobalStyle`
       width: 50%;
 
       &::before {
-        background: linear-gradient(90deg, transparent, ${color('gray.70')}, transparent);
+        background: linear-gradient(90deg, transparent, var(--gray-70), transparent);
         content: '';
-        height: ${rpx(2)};
+        height: var(--rpx);
         left: 0;
         position: absolute;
-        top: calc(50% - ${rpx(1)});
+        top: calc(50% - var(--rpx));
         width: 100%;
       }
     }

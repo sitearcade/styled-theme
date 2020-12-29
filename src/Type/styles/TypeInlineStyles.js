@@ -2,8 +2,6 @@
 
 import {createGlobalStyle} from 'styled-components';
 
-import {color} from '../../api';
-
 // export
 
 export const TypeInlineStyles = createGlobalStyle`
@@ -25,22 +23,22 @@ export const TypeInlineStyles = createGlobalStyle`
     }
 
     u {
-      text-decoration: ${color('blue')} wavy underline;
+      text-decoration: var(--blue) wavy underline;
       text-decoration-skip-ink: none;
     }
 
     ins {
-      color: ${color('green.50')};
+      color: var(--green-50);
       text-decoration: dashed underline;
     }
 
     del {
-      color: ${color('red.50')};
+      color: var(--red-50);
       text-decoration: line-through;
     }
 
     mark {
-      background-color: ${color('yellow.85')};
+      background-color: var(--yellow-85);
       padding: 0 0.25rem;
       border-radius: 0.125rem;
     }

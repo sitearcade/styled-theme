@@ -8,8 +8,8 @@ import defaultTheme from './defaultTheme';
 
 // vars
 
-const stepSize = 10;
-const steps = R.times((n) => n * stepSize, stepSize + 1);
+const stepSize = 5;
+const steps = R.times((n) => n * stepSize, Math.round(100 / stepSize) + 1);
 
 // fns
 
@@ -23,6 +23,11 @@ const makeAlphaSteps = (col) =>
   steps.reduce((acc, a) => ({...acc, [a]: tweakColor(col, {a: a / 100})}), {});
 const makeLumenSteps = (col) =>
   steps.reduce((acc, l) => ({...acc, [l]: tweakColor(col, {l})}), {});
+
+const hex2rgb = (hex) =>
+  R.splitEvery(hex.length === 4 ? 1 : 2, hex.slice(1))
+    .map((c) => parseInt(c, 16))
+    .join(', ');
 
 // export
 
@@ -44,6 +49,8 @@ export default function normalizeTheme(raw) {
       R.pickBy(R.startsWith('#'), colors),
     ),
   };
+
+  theme.rgb = R.map(hex2rgb, theme.color);
 
   return theme;
 }

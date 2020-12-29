@@ -16,7 +16,7 @@ export default {
   },
 
   layout: {
-    headerHeight: '3.75rem',
+    headerHeight: '0',
   },
 
   fx: {

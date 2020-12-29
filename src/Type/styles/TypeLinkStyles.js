@@ -2,8 +2,6 @@
 
 import {createGlobalStyle} from 'styled-components';
 
-import {color, layout, fontFam, rpx} from '../../api';
-
 // export
 
 export const TypeLinkStyles = createGlobalStyle`
@@ -28,9 +26,9 @@ export const TypeLinkStyles = createGlobalStyle`
       overflow: visible;
       cursor: pointer;
 
-      font-family: ${fontFam('body')};
+      font-family: var(--font-body);
       font-weight: 300;
-      letter-spacing: ${rpx(-0.25)}; 
+      letter-spacing: calc(var(--rpx) / -4); 
 
       &::-webkit-butt
 
@@ -78,9 +76,9 @@ export const TypeLinkStyles = createGlobalStyle`
       padding: 0 0.125rem;
       background-image: linear-gradient(
         to right, 
-        ${color('yellow')} 0%, 
-        ${color('orange')} 33%, 
-        ${color('red')} 100%
+        var(--yellow) 0%, 
+        var(--orange) 33%, 
+        var(--red) 100%
       );
       background-position: right bottom;
       background-repeat: no-repeat;
@@ -90,54 +88,54 @@ export const TypeLinkStyles = createGlobalStyle`
       &.blue {
         background-image: linear-gradient(
           to right, 
-          ${color('blue.80')} 0%, 
-          ${color('blue.70')} 25%, 
-          ${color('blue.50')} 100%
+          var(--blue-80) 0%, 
+          var(--blue-70) 25%, 
+          var(--blue-50) 100%
         );
       }
 
       &.purple {
         background-image: linear-gradient(
           to right, 
-          ${color('purple.80')} 0%, 
-          ${color('purple.70')} 25%, 
-          ${color('purple.40')} 100%
+          var(--purple-80) 0%, 
+          var(--purple-70) 25%, 
+          var(--purple-40) 100%
         );
       }
 
       &.green {
         background-image: linear-gradient(
           to right, 
-          ${color('green.80')} 0%, 
-          ${color('green.70')} 25%, 
-          ${color('green.40')} 100%
+          var(--green-80) 0%, 
+          var(--green-70) 25%, 
+          var(--green-40) 100%
         );
       }
 
       &.yellow {
         background-image: linear-gradient(
           to right, 
-          ${color('yellow.80')} 0%, 
-          ${color('yellow.70')} 25%, 
-          ${color('yellow.50')} 100%
+          var(--yellow-80) 0%, 
+          var(--yellow-70) 25%, 
+          var(--yellow-50) 100%
         );
       }
 
       &.orange {
         background-image: linear-gradient(
           to right, 
-          ${color('orange.80')} 0%, 
-          ${color('orange.70')} 25%, 
-          ${color('orange.45')} 100%
+          var(--orange-80) 0%, 
+          var(--orange-70) 25%, 
+          var(--orange-45) 100%
         );
       }
 
       &.red {
         background-image: linear-gradient(
           to right, 
-          ${color('red.75')} 0%, 
-          ${color('red.65')} 25%, 
-          ${color('red.35')} 100%
+          var(--red-75) 0%, 
+          var(--red-65) 25%, 
+          var(--red-35) 100%
         );
       }
 
@@ -166,11 +164,11 @@ export const TypeLinkStyles = createGlobalStyle`
       &.disabled,
       &:disabled {
         cursor: not-allowed;
-        color: ${color('gray.60')};
-        background: linear-gradient(to bottom, ${color('gray.60')} 0%, ${color('gray.60')} 100%);
+        color: var(--gray-60);
+        background: linear-gradient(to bottom, var(--gray-60) 0%, var(--gray-60) 100%);
         background-position: left bottom;
         background-repeat: no-repeat;
-        background-size: 100% ${rpx(1)};
+        background-size: 100% var(--rpx);
       }
 
       &.disabled {
@@ -190,8 +188,8 @@ export const TypeLinkStyles = createGlobalStyle`
         content: '';
         display: block;
         pointer-events: none;
-        height: ${layout('headerHeight')};
-        margin: -${layout('headerHeight')} 0 0;
+        height: var(--layout-headerHeight);
+        margin: calc(var(--layout-headerHeight) * -1) 0 0;
         width: 1px;
       }
     }

@@ -2,8 +2,6 @@
 
 import {createGlobalStyle} from 'styled-components';
 
-import {color, fontFam, rpx} from '../../api';
-
 // styles
 
 export const TypeCodeStyles = createGlobalStyle`
@@ -13,7 +11,7 @@ export const TypeCodeStyles = createGlobalStyle`
     samp,
     kbd,
     var {
-      font-family: ${fontFam('mono')};
+      font-family: var(--font-mono);
       font-variant-ligatures: common-ligatures;
       font-style: normal;
     }
@@ -23,7 +21,7 @@ export const TypeCodeStyles = createGlobalStyle`
     kbd,
     var {
       font-size: 0.75em;
-      border-width: ${rpx(1)};
+      border-width: var(--rpx);
       border-style: solid;
       border-radius: 0.25rem;
       padding: 0.125rem 0.25rem;
@@ -32,30 +30,30 @@ export const TypeCodeStyles = createGlobalStyle`
     }
 
     code {
-      background-color: ${color('gray.80')};
-      border-color: ${color('gray.70')};
+      background-color: var(--gray-80);
+      border-color: var(--gray-70);
     }
 
     samp {
-      background-color: ${color('orange.85')};
-      border-color: ${color('orange.75')};
+      background-color: var(--orange-85);
+      border-color: var(--orange-75);
     }
 
     kbd {
-      background-color: ${color('yellow.90')};
-      border-color: ${color('yellow.80')};
+      background-color: var(--yellow-90);
+      border-color: var(--yellow-80);
     }
 
     var {
-      background-color: ${color('red.80')};
-      border-color: ${color('red.70')};
+      background-color: var(--red-80);
+      border-color: var(--red-70);
     }
 
     pre {
       padding: 0.5rem;
       margin: 0 0 1.5rem;
-      border-left: 0.25rem solid ${color('blue')};
-      background-color: ${color('gray.80')};
+      border-left: 0.25rem solid var(--blue);
+      background-color: var(--gray-80);
       font-size: 1rem;
       line-height: 1.5rem;
       overflow-x: auto;

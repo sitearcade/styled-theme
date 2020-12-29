@@ -2,8 +2,6 @@
 
 import {createGlobalStyle} from 'styled-components';
 
-import {color, outset} from '../../api';
-
 // export
 
 export const TypeMediaStyles = createGlobalStyle`
@@ -45,7 +43,7 @@ export const TypeMediaStyles = createGlobalStyle`
 
     audio::-webkit-media-controls-panel, 
     video::-webkit-media-controls-panel {
-      background-color: ${color('gray.70')};
+      background-color: var(--gray-70);
     }
 
     audio {
@@ -79,8 +77,8 @@ export const TypeMediaStyles = createGlobalStyle`
       max-width: 100%;
       border-radius: 0.125rem;
       overflow: scroll hidden;
-      background-color: ${color('white')};
-      box-shadow: ${outset(1)} ${color('gray.60')};
+      background-color: var(--white);
+      box-shadow: 0 0 var(--fx-blur) var(--gray-60);
 
       > *:first-child {
         margin-bottom: 0;
@@ -90,7 +88,7 @@ export const TypeMediaStyles = createGlobalStyle`
 
     figcaption {
       display: block;
-      color: ${color('gray.50')};
+      color: var(--gray-50);
       padding: 0 0.5rem;
       font-size: 0.875rem;
       line-height: 2rem;

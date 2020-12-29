@@ -44,6 +44,8 @@ export const makeStyleVars = ({color, palette, breakpoints, ...theme}) => {
 
 // styles
 
-export const GlobalStyleVars = createGlobalStyle`
+// INFO: Splitting into multiple components has worse performance.
+
+export const StyleVars = createGlobalStyle`
   :root {${({theme}) => makeStyleVars(theme)}}
 `;

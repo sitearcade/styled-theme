@@ -2,24 +2,9 @@
 
 import {createGlobalStyle} from 'styled-components';
 
-import {color, fontFam, get, rpx} from '../api';
-
-import {Normalize} from './Normalize';
-
-// component
-
-export function GlobalBaseStyles() {
-  return (
-    <>
-      <Normalize />
-      <BasicStyles />
-    </>
-  );
-}
-
 // styles
 
-const BasicStyles = createGlobalStyle`
+export const BaseStyles = createGlobalStyle`
   /* normalize */
   
   *,
@@ -52,16 +37,16 @@ const BasicStyles = createGlobalStyle`
   /* styles */
 
   html {
-    font-size: ${get('baseline')}px;
+    font-size: var(--baseline);
   }
 
   body {
-    color: ${color('black')};
-    background-color: ${color('white')};
-    font-family: ${fontFam('body')};
+    color: var(--black);
+    background-color: var(--white);
+    font-family: var(--font-body);
     font-size: 1.33333rem;
     line-height: 2rem;
-    letter-spacing: ${rpx(-0.25)}; 
+    letter-spacing: calc(var(--rpx) / -4); 
     font-weight: 300;
   }
 `;

@@ -1,4 +1,6 @@
 // export
 
-export * from './GlobalBaseStyles';
-export * from './GlobalStyleVars';
+export * from './GlobalStyles';
+export * from './Normalize';
+export * from './BaseStyles';
+export * from './StyleVars';

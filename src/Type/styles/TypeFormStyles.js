@@ -2,8 +2,6 @@
 
 import {createGlobalStyle} from 'styled-components';
 
-import {color, linear, fontFam, rpx, outset} from '../../api';
-
 // export
 
 export const TypeFormStyles = createGlobalStyle`
@@ -16,7 +14,7 @@ export const TypeFormStyles = createGlobalStyle`
     fieldset {
       border-radius: 0.25rem;
       margin: 0 0 1.5rem;
-      border: 1px solid ${color('gray.50')};
+      border: 1px solid var(--gray-50);
       padding: 0.25rem 1rem 1rem;
 
       > :last-child {
@@ -29,7 +27,7 @@ export const TypeFormStyles = createGlobalStyle`
     }
 
     .required {
-      color: ${color('red')};
+      color: var(--red);
     }
 
     label:not(.option) {
@@ -74,12 +72,12 @@ export const TypeFormStyles = createGlobalStyle`
     textarea,
     select {
       appearance: none;
-      background-color: ${color('white')};
-      border: ${rpx(1)} solid ${color('gray.60')};
+      background-color: var(--white);
+      border: var(--rpx) solid var(--gray-60);
       display: block;
-      color: ${color('black')};
-      font-family: ${fontFam('body')};
-      letter-spacing: ${rpx(-0.25)}; 
+      color: var(--black);
+      font-family: var(--font-body);
+      letter-spacing: calc(var(--rpx) / -4); 
       font-size: 1rem;
       font-weight: 300;
       line-height: 1.5rem;
@@ -87,37 +85,37 @@ export const TypeFormStyles = createGlobalStyle`
       margin: 0 0 1rem;
       padding: 0.5rem 0.75rem;
       width: 100%;
-      transition: box-shadow ${linear(1)}, border-color ${linear(1)};
+      transition: box-shadow 0.1s linear, border-color 0.1s linear;
 
       &::placeholder {
-        color: ${color('gray.50')};
+        color: var(--gray-50);
       }
 
       &:hover {
-        box-shadow: ${outset(1)} ${color('black', 0.333)};
+        box-shadow: 0 0 var(--fx-blur) var(--black-30);
       }
 
       &:focus {
-        background-color: ${color('white')};
-        border-color: ${color('gray.50')};
-        box-shadow: ${outset(1)} ${color('black', 0.666)};
+        background-color: var(--white);
+        border-color: var(--gray-50);
+        box-shadow: 0 0 var(--fx-blur) var(--black-70);
       }
 
       &:disabled {
-        background-color: ${color('gray.80')};
+        background-color: var(--gray-80);
         cursor: not-allowed;
       }
 
       &.invalid {
-        border-color: ${color('red')};
+        border-color: var(--red);
 
         &:hover {
-          box-shadow: ${outset(1)} ${color('red.70')};
+          box-shadow: 0 0 var(--fx-blur) var(--red-70);
         }
 
         &:focus {
-          border-color: ${color('red.50')};
-          box-shadow: ${outset(1)} ${color('red.50')};
+          border-color: var(--red-50);
+          box-shadow: 0 0 var(--fx-blur) var(--red-50);
         }
       }
 
@@ -126,10 +124,10 @@ export const TypeFormStyles = createGlobalStyle`
       &:-webkit-autofill:focus,
       &:-webkit-autofill:active {
         /* stylelint-disable property-no-vendor-prefix */
-        -webkit-box-shadow: 0 0 0 ${rpx(100)} ${color('white')} inset;
+        -webkit-box-shadow: 0 0 0 100rem var(--white) inset;
 
         &:disabled {
-          -webkit-box-shadow: 0 0 0 ${rpx(100)} ${color('gray.80')} inset;
+          -webkit-box-shadow: 0 0 0 100rem var(--gray-80) inset;
         }
       }
     }
@@ -144,7 +142,7 @@ export const TypeFormStyles = createGlobalStyle`
       padding: 0.25rem;
 
       &::-webkit-file-upload-button {
-        letter-spacing: ${rpx(-0.25)}; 
+        letter-spacing: calc(var(--rpx) / -4); 
       }
     }
 
@@ -194,7 +192,7 @@ export const TypeFormStyles = createGlobalStyle`
         right: 0.5rem;
         top: 0.625rem;
         clip-path: polygon(50% 0, 100% 40%, 50% 40%, 50% 60%, 100% 60%, 50% 100%, 0 60%, 50% 60%, 50% 40%, 0 40%);
-        background-color: ${color('gray.30')};
+        background-color: var(--gray-30);
       }
     }
   }
