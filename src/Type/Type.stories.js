@@ -5,7 +5,7 @@ import * as R from 'ramda';
 import React, {useState, useCallback} from 'react';
 
 import {GlobalStyles} from '../GlobalStyles';
-import baseTheme from '../arcadeTheme';
+import {arcadeTheme} from '../arcadeTheme';
 import {ThemeProvider} from '../useTheme';
 
 import {GlobalTypeStyles} from './GlobalTypeStyles';
@@ -23,11 +23,10 @@ export default {
 };
 
 function Template(args) {
-  const [theme, setTheme] = useState(baseTheme);
+  const [theme, setTheme] = useState(arcadeTheme);
   const onClick = useCallback(() => setTheme((v) => (
-    v.color.green === '#99ff99' ?
-      baseTheme :
-      R.mergeDeepRight(baseTheme, {color: {green: '#99ff99'}})
+    v.color.green === '#99ff99' ? arcadeTheme :
+    R.mergeDeepRight(arcadeTheme, {color: {green: '#99ff99'}})
   )), []);
 
   return (

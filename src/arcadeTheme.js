@@ -1,6 +1,6 @@
 // export
 
-export default {
+export const arcadeTheme = {
   layout: {
     headerHeight: '3.75rem',
   },
