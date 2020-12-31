@@ -12,11 +12,20 @@
     "url": "https://www.sitearcade.com"
   },
   "sideEffects": false,
-  "source": "./src/index.js",
+  "source": "src/index.js",
   "main": "./dist/index.js",
-  "-exports": "./dist/index.modern.js",
-  "-esmodule": "./dist/index.modern.js",
+  "jsnext:main": "./dist/index.modern.js",
   "module": "./dist/index.module.js",
+  "syntax": {
+    "esmodules": "./dist/index.modern.js"
+  },
+  "exports": {
+    ".": {
+      "browser": "./dist/index.module.js",
+      "import": "./dist/index.module.js",
+      "require": "./dist/index.js"
+    }
+  },
   "files": [
     "dist"
   ],
