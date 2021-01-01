@@ -70,7 +70,7 @@ export const TypeLinkStyles = createGlobalStyle`
       }
     }
 
-    button.link,
+    button.link:not(.unstyled):not([name]),
     a:not(.button):not(.unstyled):not([name]) {
       cursor: pointer;
       padding: 0 0.125rem;
