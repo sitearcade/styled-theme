@@ -6,14 +6,14 @@ import {createGlobalStyle} from 'styled-components';
 
 export const TypeMediaStyles = createGlobalStyle`
   .Type {
-    img,
-    picture,
-    svg,
-    audio,
-    video,
-    canvas,
-    object,
-    embed {
+    > img,
+    > picture,
+    > svg,
+    > audio,
+    > video,
+    > canvas,
+    > object,
+    > embed {
       display: block;
       height: auto;
       margin: 0 0 1.5rem;
