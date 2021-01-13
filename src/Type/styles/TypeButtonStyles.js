@@ -11,8 +11,7 @@ export const TypeButtonStyles = createGlobalStyle`
     }
 
     a.button,
-    button:not(.link),
-    button:not(.unstyled),
+    button:not(.link):not(.unstyled),
     input[type="button"],
     input[type="submit"],
     input[type="reset"] {
@@ -163,8 +162,7 @@ export const TypeButtonStyles = createGlobalStyle`
       }
 
       + a.button,
-      + button:not(.link),
-      + button:not(.unstyled),
+      + button:not(.link):not(.unstyled),
       + input[type="button"],
       + input[type="submit"],
       + input[type="reset"] {
