@@ -6,8 +6,13 @@ import {createGlobalStyle} from 'styled-components';
 
 export const TypeButtonStyles = createGlobalStyle`
   .Type {
+    button.unstyled {
+      appearance: none;
+    }
+
     a.button,
     button:not(.link),
+    button:not(.unstyled),
     input[type="button"],
     input[type="submit"],
     input[type="reset"] {
@@ -159,6 +164,7 @@ export const TypeButtonStyles = createGlobalStyle`
 
       + a.button,
       + button:not(.link),
+      + button:not(.unstyled),
       + input[type="button"],
       + input[type="submit"],
       + input[type="reset"] {
