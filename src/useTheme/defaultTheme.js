@@ -38,14 +38,6 @@ export default {
   },
 
   color: {
-    brand: '#7f7f7f',
-
-    light: '#ffffff',
-    pale: '#cfcfcf',
-    prime: '#7f7f7f',
-    dark: '#3f3f3f',
-    shade: '#000000',
-
     // palette alpha
     white: '#ffffff',
     black: '#000000',

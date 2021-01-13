@@ -19,10 +19,11 @@ export const arcadeTheme = {
     gray: '#7e8081',
     blue: '#3aa8c3',
     purple: '#98576e',
-    prussia: '#2a7a8d',
     yellow: '#ffcd67',
     orange: '#f8a847',
     green: '#4d995c',
     red: '#e76f51',
+
+    prussia: '#2a7a8d',
   },
 };
