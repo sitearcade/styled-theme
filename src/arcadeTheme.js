@@ -6,7 +6,7 @@ export const arcadeTheme = {
   },
 
   font: {
-    body: 'Rubik, Roboto, Lato, Open Sans, san-serif',
+    body: 'Rubik, Roboto, Lato, Open Sans, sans-serif',
     logo: 'Bungee, san-serif',
     head: 'Bitter, Roboto Slab, serif',
     mono: 'FiraCode-Retina, Fira Code, Roboto Mono, monospace',
