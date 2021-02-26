@@ -101,6 +101,7 @@ export const TypeFormStyles = createGlobalStyle`
         box-shadow: 0 0 var(--fx-blur) var(--black-70);
       }
 
+      &.disabled,
       &:disabled {
         background-color: var(--gray-80);
         cursor: not-allowed;
@@ -126,6 +127,7 @@ export const TypeFormStyles = createGlobalStyle`
         /* stylelint-disable property-no-vendor-prefix */
         -webkit-box-shadow: 0 0 0 100rem var(--white) inset;
 
+        &.disabled,
         &:disabled {
           -webkit-box-shadow: 0 0 0 100rem var(--gray-80) inset;
         }
