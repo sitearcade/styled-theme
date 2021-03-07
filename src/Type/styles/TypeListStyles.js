@@ -17,6 +17,24 @@ export const TypeListStyles = createGlobalStyle`
       ul, ol {
         margin-bottom: 0;
       }
+
+      > p {
+        margin-bottom: 0.5rem;
+      }
+
+      > img,
+      > picture,
+      > svg,
+      > audio,
+      > video,
+      > canvas,
+      > object,
+      > embed {
+        display: block;
+        height: auto;
+        max-width: 100%;
+        margin: 0 auto 0.5rem;
+      }
     }
 
     ul,

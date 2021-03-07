@@ -16,7 +16,7 @@ export const TypeMediaStyles = createGlobalStyle`
     > embed {
       display: block;
       height: auto;
-      margin: 0 0 1.5rem;
+      margin: 0 auto 1.5rem;
       max-width: 100%;
     }
 
