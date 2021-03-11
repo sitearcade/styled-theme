@@ -100,5 +100,46 @@ export const TypeBlockStyles = createGlobalStyle`
         width: 100%;
       }
     }
+
+    p.hint {
+      padding: 0.5rem 0.5rem;
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+      border-left-width: 0.5rem;
+      border-left-style: solid;
+      border-radius: 0.125rem 0.375rem 0.375rem 0.125rem;
+
+      &.bonus {
+        background-color: var(--green-85);
+        border-left-color: var(--green-60);
+        box-shadow: 
+          0 0 0.125rem rgba(var(--rgb-green), 0.25),
+          0 0 0.125rem var(--black-25);
+      }
+
+      &.info {
+        background-color: var(--blue-90);
+        border-left-color: var(--blue-60);
+        box-shadow: 
+          0 0 0.125rem rgba(var(--rgb-blue), 0.25),
+          0 0 0.125rem var(--black-25);
+      }
+
+      &.warning {
+        background-color: var(--yellow-100);
+        border-left-color: var(--yellow-65);
+        box-shadow: 
+          0 0 0.125rem rgba(var(--rgb-yellow), 0.25),
+          0 0 0.125rem var(--black-25);
+      }
+
+      &.error {
+        background-color: var(--red-90);
+        border-left-color: var(--red-60);
+        box-shadow: 
+          0 0 0.125rem rgba(var(--rgb-red), 0.25),
+          0 0 0.125rem var(--black-25);
+      }
+    }
   }
 `;

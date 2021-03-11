@@ -119,3 +119,33 @@ Buttons.args = {
 };
 
 Buttons.story = {...Basic.story};
+
+export const Hints = Template.bind({});
+
+Hints.args = {
+  children: (
+    <>
+      <h1>Hints</h1>
+
+      <p>This is just a regular old paragraph, for context.</p>
+
+      <p className="hint bonus">This is a bonus to other content. Nice and green!</p>
+
+      <p>This is just a regular old paragraph, for context.</p>
+
+      <p className="hint info">Mark this! You'll want to know all about what I've got to say here.</p>
+
+      <p>This is just a regular old paragraph, for context.</p>
+
+      <p className="hint warning">Question, do you really know what you think you know? Or is this line not long enough to wrap and wrap and wrap?</p>
+
+      <p>This is just a regular old paragraph, for context.</p>
+
+      <p className="hint error">Oh no! This is a bad sign!</p>
+
+      <p>This is just a regular old paragraph, for context.</p>
+    </>
+  ),
+};
+
+Hints.story = {};
