@@ -6,7 +6,7 @@ import * as R from 'ramda';
 // component
 
 export function Type(props) {
-  const {html, children, className, as: El, forwardRef, trim, ...rest} = props;
+  const {html, children, className, as: El = 'div', forwardRef, trim = true, ...rest} = props;
 
   const content = html ? {dangerouslySetInnerHTML: {__html: html}} :
     R.type(children) === 'String' ? {dangerouslySetInnerHTML: {__html: children}} :
@@ -31,9 +31,4 @@ Type.propTypes = {
   forwardRef: pt.object,
   html: pt.string,
   trim: pt.oneOf([true, false, 'top', 'end']),
-};
-
-Type.defaultProps = {
-  as: 'div',
-  trim: true,
 };
