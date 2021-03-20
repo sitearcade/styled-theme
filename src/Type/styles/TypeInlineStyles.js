@@ -22,6 +22,10 @@ export const TypeInlineStyles = createGlobalStyle`
       font-weight: 500;
     }
 
+    .underline {
+      text-decoration: underline;
+    }
+
     u {
       text-decoration: var(--blue) wavy underline;
       text-decoration-skip-ink: none;
