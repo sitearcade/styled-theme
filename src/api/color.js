@@ -24,7 +24,7 @@ export function tweakColor(base = '#000000', mod = {}) {
 }
 
 export default function color({theme}, req, mod = {}) {
-  if (R.type(req) === 'Object') {
+  if (!Array.isArray(req) && R.type(req) === 'Object') {
     return tweakColor('#000000', req);
   }
 
