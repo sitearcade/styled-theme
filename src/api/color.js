@@ -24,17 +24,15 @@ export function tweakColor(base = '#000000', mod = {}) {
 }
 
 export default function color({theme}, req, mod = {}) {
-  if (!Array.isArray(req) && R.type(req) === 'Object') {
+  if (R.type(req) === 'Object') {
     return tweakColor('#000000', req);
   }
 
   const [col, adj] = splitDots(req);
-  let base = adj ? theme.palette[col][adj] : theme.color[col];
+  const base = theme.palette[col]?.[adj] ?? theme.color[col] ?? col;
   mod = R.is(Number, mod) ? {a: mod} : mod;
 
-  if (!base) {
-    base = theme.color[col];
-
+  if (adj) {
     if (alphas.includes(col)) {
       mod = {a: parseFloat(adj) / 100, ...mod};
     } else {
