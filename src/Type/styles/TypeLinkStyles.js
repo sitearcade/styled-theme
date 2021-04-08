@@ -177,19 +177,22 @@ export const TypeLinkStyles = createGlobalStyle`
     }
 
     /* nav anchors */
-    a.anchor:not([name]):link {
+    a.anchor:not([name]):not([id]):link {
       background-size: 100% 0;
     }
 
     /* anchor targets */
     h1, h2, h3, h4, h5, h6,
+    a[id]:target,
     a[name]:target {
+      --offset: calc(var(--layout-headerHeight) + 1.5rem);
+
       &::before {
         content: '';
         display: block;
         pointer-events: none;
-        height: var(--layout-headerHeight);
-        margin: calc(var(--layout-headerHeight) * -1) 0 0;
+        height: var(--offset);
+        margin: calc(var(--offset) * -1) 0 0;
         width: 1px;
       }
     }

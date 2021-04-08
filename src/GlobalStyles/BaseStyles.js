@@ -17,12 +17,15 @@ export const BaseStyles = createGlobalStyle`
     outline: none;
   }
 
-  html, body {
+  html {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
+    position: relative;
   }
 
   body {
+    width: 100%;
+    height: 100%;
     overscroll-behavior: none;
     overflow-x: hidden;
     margin: 0;
