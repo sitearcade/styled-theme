@@ -47,6 +47,7 @@ export const BaseStyles = createGlobalStyle`
     color: var(--black);
     background-color: var(--white);
     font-family: var(--font-body);
+    /* TODO: Why not 1.375rem? */
     font-size: 1.33333rem;
     line-height: 2rem;
     letter-spacing: calc(var(--rpx) / -4); 
