@@ -1,6 +1,5 @@
 // import
 
-import color from './color';
 import normalizeTheme from './normalizeTheme';
 
 // test
