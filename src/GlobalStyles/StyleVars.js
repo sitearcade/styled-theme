@@ -1,5 +1,6 @@
 // import
 
+import pt from 'prop-types';
 import * as R from 'ramda';
 import {createGlobalStyle} from 'styled-components';
 
@@ -8,7 +9,7 @@ import {maxClip} from '../api/media';
 // fns
 
 const reduceVar = (key, val) => (
-  R.type(val) === 'Object' ?
+  typeof val === 'object' ?
     reduceStyleVars(val, `${key}-`) :
     `--${key}: ${val};\n`
 );
@@ -44,8 +45,10 @@ export const makeStyleVars = ({color, palette, breakpoints, ...theme}) => {
 
 // styles
 
-// INFO: Splitting into multiple components has worse performance.
-
 export const StyleVars = createGlobalStyle`
   :root {${({theme}) => makeStyleVars(theme)}}
 `;
+
+StyleVars.propTypes = {
+  theme: pt.object,
+};
