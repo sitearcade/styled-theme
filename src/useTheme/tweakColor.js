@@ -7,6 +7,8 @@ import {
 import {transparentize} from 'polished';
 import * as R from 'ramda';
 
+import {themeCache} from './themeCache';
+
 // fns
 
 function hex2lch(hex) {
@@ -30,13 +32,22 @@ function lch2hex(lch) {
 
 // export
 
-export function tweakColor(base, {a, ...lch} = {}) {
-  base ??= '#000000';
-
+export function tweakColor(base = '#000000', {a, ...lch} = {}) {
   base = R.isEmpty(lch) ? base :
     lch2hex({...hex2lch(base), ...lch});
   base = R.isNil(a) ? base :
     transparentize(1 - a, base);
 
   return base;
+}
+
+export function tweakColorViaCache(base = '#000000', mod = {}) {
+  const key = [base, mod.a, mod.l, mod.c, mod.h].join('-');
+  const found = themeCache.get(key);
+
+  if (found) {
+    return found;
+  }
+
+  return themeCache.set(key, tweakColor(base, mod));
 }

@@ -2,8 +2,8 @@
 
 import * as R from 'ramda';
 
-import {tweakColor} from './color';
 import defaultTheme from './defaultTheme';
+import {tweakColorViaCache as tweakColor} from './tweakColor';
 
 // vars
 
