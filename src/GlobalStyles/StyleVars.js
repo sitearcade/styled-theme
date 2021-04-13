@@ -2,9 +2,11 @@
 
 import pt from 'prop-types';
 import * as R from 'ramda';
+import {useMemo} from 'react';
 import {createGlobalStyle} from 'styled-components';
 
 import {maxClip} from '../api/media';
+import {normalizeTheme} from '../useTheme';
 
 // fns
 
@@ -46,7 +48,12 @@ export const makeStyleVars = ({color, palette, breakpoints, ...theme}) => {
 // styles
 
 export const StyleVars = createGlobalStyle`
-  :root {${({theme}) => makeStyleVars(theme)}}
+  :root {${({theme}) => {
+    return useMemo(
+      () => makeStyleVars(normalizeTheme(theme)),
+      [theme],
+    );
+  }}}
 `;
 
 StyleVars.propTypes = {
