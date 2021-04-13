@@ -2,14 +2,14 @@
 
 // import
 
-import normalizeTheme from "../useTheme/normalizeTheme";
+import normalizeTheme from '../useTheme/normalizeTheme';
 
-import { makeStyleVars } from "./StyleVars";
+import {makeStyleVars} from './StyleVars';
 
 // test
 
-describe("makeStyleVars(theme)", () => {
-  it("produces valid css variables based on theme", () => {
+describe('makeStyleVars(theme)', () => {
+  it('produces valid css variables based on theme', () => {
     expect(makeStyleVars(normalizeTheme({}))).toMatchInlineSnapshot(`
       "--baseline: 16px;
       --layout-headerHeight: 0;

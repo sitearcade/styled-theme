@@ -4,8 +4,11 @@ import pt from 'prop-types';
 import * as R from 'ramda';
 import {createGlobalStyle} from 'styled-components';
 
-import {maxClip} from '../api/media';
 import {normalizeTheme} from '../useTheme';
+
+// vars
+
+export const maxClip = 0.00125;
 
 // fns
 

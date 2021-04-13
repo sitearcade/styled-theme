@@ -1,7 +1,6 @@
 // import
 
-import {color} from '../api';
-
+import color from './color';
 import normalizeTheme from './normalizeTheme';
 
 // test
@@ -73,11 +72,6 @@ describe('normalizeTheme(theme)', () => {
         green: '#4d995c',
       },
     });
-
-    expect(color('green.62')({theme})).toStrictEqual('#5aa668');
-    expect(color('green.30')({theme})).toStrictEqual('#005324');
-    expect(color('gray.97')({theme})).toStrictEqual('#f5f7f8');
-    expect(color('gray.9')({theme})).toStrictEqual('#181a1a');
 
     expect(theme.palette.gray).toMatchInlineSnapshot(`
       Object {

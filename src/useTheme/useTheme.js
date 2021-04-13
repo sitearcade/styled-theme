@@ -4,8 +4,6 @@ import pt from 'prop-types';
 import {useMemo, createContext, useContext} from 'react';
 import {ThemeProvider as Provider, useTheme} from 'styled-components';
 
-import {bindThemeToApi} from '../api';
-
 import normalizeTheme from './normalizeTheme';
 
 // context
@@ -24,17 +22,11 @@ export function useThemeApi() {
 
 export function ThemeProvider(props) {
   const {children, theme} = props;
-  const [boundTheme, boundApi] = useMemo(() => {
-    const normalTheme = normalizeTheme(theme);
-
-    return [normalTheme, bindThemeToApi(normalTheme)];
-  }, [theme]);
+  const boundTheme = useMemo(() => normalizeTheme(theme), [theme]);
 
   return (
     <Provider theme={boundTheme}>
-      <ThemeApiContext.Provider value={boundApi}>
-        {children}
-      </ThemeApiContext.Provider>
+      {children}
     </Provider>
   );
 }

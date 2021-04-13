@@ -1,5 +1,9 @@
 // export
 
+export const splitDots = (loc) => (
+  Array.isArray(loc) ? loc : loc.split('.')
+);
+
 export const keepProps = (props, useDef = true) => ({
   shouldForwardProp(prop, defFn) {
     return props.includes(prop) && (!useDef || defFn(prop));

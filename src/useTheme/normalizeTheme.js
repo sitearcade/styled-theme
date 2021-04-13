@@ -2,8 +2,7 @@
 
 import * as R from 'ramda';
 
-import {tweakColor} from '../api/color';
-
+import {tweakColor} from './color';
 import defaultTheme from './defaultTheme';
 
 // vars

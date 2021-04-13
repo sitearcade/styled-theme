@@ -1,7 +1,3 @@
-// import
-
-import * as R from 'ramda';
-
 // vars
 
 let cache = {};
