@@ -110,11 +110,12 @@ export function TypographyTest() {
       <p><img alt="Yaktocat" src="https://octodex.github.com/images/yaktocat.png" /></p>
       <h2><code>&lt;picture&gt;</code></h2>
       <p><code>&lt;picture&gt;</code> allows us to use advanced image formats or custom sizes without breaking anyone's experience...</p>
-      <pre><code className="lang-markdown"><span>&lt;<span>picture</span>&gt;</span>
-        <span>&lt;<span>source</span> <span className="hljs-attr">srcset</span>=<span className="hljs-string">"https://interactive-examples.mdn.mozilla.net/media/cc0-images/surfer-240-200.jpg"</span> <span className="hljs-attr">media</span>=<span className="hljs-string">"(min-width: 800px)"</span>&gt;</span>
-        <span>&lt;<span>img</span> <span className="hljs-attr">src</span>=<span className="hljs-string">"https://interactive-examples.mdn.mozilla.net/media/cc0-images/painted-hand-298-332.jpg"</span> <span className="hljs-attr">alt</span>=<span className="hljs-string">"Surfer"</span> /&gt;</span>
-        <span>&lt;/<span>picture</span>&gt;</span>
-           </code>
+      <pre>
+        <code className="lang-markdown"><span>&lt;<span>picture</span>&gt;</span>
+          <span>&lt;<span>source</span> <span className="hljs-attr">srcset</span>=<span className="hljs-string">"https://interactive-examples.mdn.mozilla.net/media/cc0-images/surfer-240-200.jpg"</span> <span className="hljs-attr">media</span>=<span className="hljs-string">"(min-width: 800px)"</span>&gt;</span>
+          <span>&lt;<span>img</span> <span className="hljs-attr">src</span>=<span className="hljs-string">"https://interactive-examples.mdn.mozilla.net/media/cc0-images/painted-hand-298-332.jpg"</span> <span className="hljs-attr">alt</span>=<span className="hljs-string">"Surfer"</span> /&gt;</span>
+          <span>&lt;/<span>picture</span>&gt;</span>
+        </code>
       </pre>
       <picture>
         <source media="(min-width: 800px)" srcSet="https://interactive-examples.mdn.mozilla.net/media/cc0-images/surfer-240-200.jpg" />
@@ -123,22 +124,23 @@ export function TypographyTest() {
 
       <h2><code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code></h2>
       <p><code>&lt;audio&gt;</code> allows users to play a raw audio file...</p>
-      <pre><code className="lang-markdown"><span>&lt;<span>audio</span> <span className="hljs-attr">controls</span> <span className="hljs-attr">src</span>=<span className="hljs-string">"https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3"</span>&gt;</span>
-        Your browser does not support the <span>&lt;<span>code</span>&gt;</span>audio<span>&lt;/<span>code</span>&gt;</span> element.
-        <span>&lt;/<span>audio</span>&gt;</span>
-           </code>
+      <pre>
+        <code className="lang-markdown"><span>&lt;<span>audio</span> <span className="hljs-attr">controls</span> <span className="hljs-attr">src</span>=<span className="hljs-string">"https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3"</span>&gt;</span>
+          Your browser does not support the <span>&lt;<span>code</span>&gt;</span>audio<span>&lt;/<span>code</span>&gt;</span> element. <span>&lt;/<span>audio</span>&gt;</span>
+        </code>
       </pre>
       <audio controls src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3">
         Your browser does not support the <code>audio</code> element.
       </audio>
 
       <p><code>&lt;video&gt;</code> allows users to play a raw video file...</p>
-      <pre><code className="lang-markdown">&lt;video controls width=<span className="hljs-string">"250"</span>&gt;
-        &lt;source src=<span className="hljs-string">"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"</span> <span className="hljs-class"><span className="hljs-keyword">type</span></span>=<span className="hljs-string">"video/webm"</span>&gt;
-        &lt;source src=<span className="hljs-string">"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"</span> <span className="hljs-class"><span className="hljs-keyword">type</span></span>=<span className="hljs-string">"video/mp4"</span>&gt;
-      <span className="hljs-type">Sorry</span>, your browser doesn<span className="hljs-symbol">'t</span> support embedded videos.
-        &lt;/video&gt;
-      </code>
+      <pre>
+        <code className="lang-markdown">&lt;video controls width=<span className="hljs-string">"250"</span>&gt;
+          &lt;source src=<span className="hljs-string">"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"</span> <span className="hljs-class"><span className="hljs-keyword">type</span></span>=<span className="hljs-string">"video/webm"</span>&gt;
+          &lt;source src=<span className="hljs-string">"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"</span> <span className="hljs-class"><span className="hljs-keyword">type</span></span>=<span className="hljs-string">"video/mp4"</span>&gt;
+        <span className="hljs-type">Sorry</span>, your browser doesn<span className="hljs-symbol">'t</span> support embedded videos.
+          &lt;/video&gt;
+        </code>
       </pre>
       <video controls width="250">
         <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm" />
@@ -151,10 +153,11 @@ export function TypographyTest() {
       <p><code>&lt;iframe&gt;</code> will be described some other time...</p>
       <h2><code>&lt;svg&gt;</code></h2>
       <p>You can write SVG directly into the page:</p>
-      <pre><code className="lang-svg">&lt;svg <span className="hljs-built_in">width</span>=<span className="hljs-string">"100px"</span> <span className="hljs-built_in">height</span>=<span className="hljs-string">"100px"</span>&gt;
-        &lt;<span className="hljs-built_in">circle</span> cx=<span className="hljs-string">"100"</span> cy=<span className="hljs-string">"100"</span> r=<span className="hljs-string">"100"</span> <span className="hljs-built_in">fill</span>=<span className="hljs-string">"#1fa3ec"</span> /&gt;
-        &lt;/svg&gt;
-      </code>
+      <pre>
+        <code className="lang-svg">&lt;svg <span className="hljs-built_in">width</span>=<span className="hljs-string">"100px"</span> <span className="hljs-built_in">height</span>=<span className="hljs-string">"100px"</span>&gt;
+          &lt;<span className="hljs-built_in">circle</span> cx=<span className="hljs-string">"100"</span> cy=<span className="hljs-string">"100"</span> r=<span className="hljs-string">"100"</span> <span className="hljs-built_in">fill</span>=<span className="hljs-string">"#1fa3ec"</span> /&gt;
+          &lt;/svg&gt;
+        </code>
       </pre>
       <p>See here:</p>
       <svg height="100px" width="100px">
@@ -163,13 +166,14 @@ export function TypographyTest() {
 
       <h2><code>&lt;figure&gt;</code> and <code>&lt;figcaption&gt;</code></h2>
       <p><code>&lt;figure&gt;</code> is useful as a stylistic element as well as to convey information to bots and screen-readers. It's typically used with <code>&lt;figcaption&gt;</code> to add contextual information.</p>
-      <pre><code className="lang-markdown"><span className="xml"><span>&lt;<span>figure</span>&gt;</span></span>
+      <pre>
+        <code className="lang-markdown"><span className="xml"><span>&lt;<span>figure</span>&gt;</span></span>
 
-        ![<span className="hljs-string">Yaktocat</span>](<span className="hljs-link">https://octodex.github.com/images/yaktocat.png</span>)
+          ![<span className="hljs-string">Yaktocat</span>](<span className="hljs-link">https://octodex.github.com/images/yaktocat.png</span>)
 
-        <span className="xml"><span>&lt;<span>figcaption</span>&gt;</span></span>A yaktocat, as seen in the wild<span className="xml"><span>&lt;/<span>figcaption</span>&gt;</span></span>
-        <span className="xml"><span>&lt;/<span>figure</span>&gt;</span></span>
-           </code>
+          <span className="xml"><span>&lt;<span>figcaption</span>&gt;</span></span>A yaktocat, as seen in the wild<span className="xml"><span>&lt;/<span>figcaption</span>&gt;</span></span>
+          <span className="xml"><span>&lt;/<span>figure</span>&gt;</span></span>
+        </code>
       </pre>
       <p>Which renders as:</p>
       <figure>
@@ -182,21 +186,22 @@ export function TypographyTest() {
       <h1>Block-level Elements</h1>
       <h2><code>&lt;blockquote&gt;</code> -- <code>&gt; Block quotes</code></h2>
       <p>Blockquotes are very useful, and very easy to do with markdown. See:</p>
-      <pre><code className="lang-markdown">&gt; `&gt;` begins a paragraph within a blockquote.
-        &gt;
-        &gt; Use an empty line beginning <span className="hljs-keyword">with</span> a `&gt;` <span className="hljs-keyword">to</span> start a <span className="hljs-keyword">new</span> paragraph.
-        &gt;
-        &gt; Line breaks work <span className="hljs-keyword">as</span> normal,
-        &gt; <span className="hljs-keyword">or</span> <span className="hljs-keyword">by</span> <span className="hljs-keyword">using</span> `&lt;br /&gt;`, such <span className="hljs-keyword">as</span>&lt;br /&gt;here.
-        &gt;
-        &gt; &gt; <span className="hljs-keyword">And</span> you can deeply nest blockquotes...
-        &gt; &gt; &gt; Don<span className="hljs-comment">'t be afraid...</span>
-        &gt; &gt; &gt; &gt; The further you go, the further you can go.
-        &gt;
-        &gt; <span className="hljs-keyword">And</span> at the <span className="hljs-keyword">end</span>, feel free <span className="hljs-keyword">to</span> attribute your blockquote <span className="hljs-keyword">with</span> a `&lt;cite&gt;` tag, <span className="hljs-keyword">like</span> so...
-        &gt;
-        &gt; &lt;cite&gt;Mike <span className="hljs-keyword">Stop</span> Continues&lt;/cite&gt;
-           </code>
+      <pre>
+        <code className="lang-markdown">&gt; `&gt;` begins a paragraph within a blockquote.
+          &gt;
+          &gt; Use an empty line beginning <span className="hljs-keyword">with</span> a `&gt;` <span className="hljs-keyword">to</span> start a <span className="hljs-keyword">new</span> paragraph.
+          &gt;
+          &gt; Line breaks work <span className="hljs-keyword">as</span> normal,
+          &gt; <span className="hljs-keyword">or</span> <span className="hljs-keyword">by</span> <span className="hljs-keyword">using</span> `&lt;br /&gt;`, such <span className="hljs-keyword">as</span>&lt;br /&gt;here.
+          &gt;
+          &gt; &gt; <span className="hljs-keyword">And</span> you can deeply nest blockquotes...
+          &gt; &gt; &gt; Don<span className="hljs-comment">'t be afraid...</span>
+          &gt; &gt; &gt; &gt; The further you go, the further you can go.
+          &gt;
+          &gt; <span className="hljs-keyword">And</span> at the <span className="hljs-keyword">end</span>, feel free <span className="hljs-keyword">to</span> attribute your blockquote <span className="hljs-keyword">with</span> a `&lt;cite&gt;` tag, <span className="hljs-keyword">like</span> so...
+          &gt;
+          &gt; &lt;cite&gt;Mike <span className="hljs-keyword">Stop</span> Continues&lt;/cite&gt;
+        </code>
       </pre>
       <p>Results in:</p>
       <blockquote>
@@ -218,20 +223,21 @@ export function TypographyTest() {
         <p><cite>Mike Stop Continues</cite></p>
       </blockquote>
       <p>If the <code>&gt;</code> characters are too messy, you can do the same thing with pure HTML. And remember if you include empty lines, you can write the content of the <code>&lt;blockquote&gt;</code> in markdown.</p>
-      <pre><code className="lang-markdown"><span className="hljs-symbol">&lt;blockquote&gt;</span>
+      <pre>
+        <code className="lang-markdown"><span className="hljs-symbol">&lt;blockquote&gt;</span>
 
-        This <span className="hljs-keyword">is</span> <span className="hljs-keyword">a</span> <span className="hljs-built_in">complete</span> paragraph.
+          This <span className="hljs-keyword">is</span> <span className="hljs-keyword">a</span> <span className="hljs-built_in">complete</span> paragraph.
 
-        Using the `<span className="hljs-symbol">&lt;blockquote&gt;</span>` <span className="hljs-keyword">tag</span> allows you
-        <span className="hljs-keyword">to</span> use easy <span className="hljs-built_in">line</span>-<span className="hljs-keyword">break</span>
-        <span className="hljs-keyword">syntax</span>.
+          Using the `<span className="hljs-symbol">&lt;blockquote&gt;</span>` <span className="hljs-keyword">tag</span> allows you
+          <span className="hljs-keyword">to</span> use easy <span className="hljs-built_in">line</span>-<span className="hljs-keyword">break</span>
+          <span className="hljs-keyword">syntax</span>.
 
-        And of course, you can still end with <span className="hljs-keyword">a</span> citation:
+          And of course, you can still end with <span className="hljs-keyword">a</span> citation:
 
-        <span className="hljs-symbol">&lt;cite&gt;</span>Oliver Altair&lt;/cite&gt;
+          <span className="hljs-symbol">&lt;cite&gt;</span>Oliver Altair&lt;/cite&gt;
 
-        &lt;/blockquote&gt;
-      </code>
+          &lt;/blockquote&gt;
+        </code>
       </pre>
       <p>Which renders:</p>
       <blockquote>
@@ -280,7 +286,7 @@ export function TypographyTest() {
         <code className="lang-markdown">so much depends
           upon
 
-        <span className="hljs-keyword">a</span> red wheel
+          <span className="hljs-keyword">a</span> red wheel
           barrow
 
           glazed <span className="hljs-keyword">with</span> rain
@@ -333,10 +339,12 @@ export function TypographyTest() {
       </ol>
 
       <p>In markdown, simply number the lines. The numbers are self-correcting, and this is useful if you don't want to renumber every time you add an item to the list. Just use <code>1.</code> over and over again:</p>
-      <pre><code className="lang-md"><span className="hljs-number">1.</span> Item <span className="hljs-number">1</span>
-        <span className="hljs-number">1.</span> Item <span className="hljs-number">2</span>
-        <span className="hljs-number">1.</span> Item <span className="hljs-number">3</span>
-           </code>
+      <pre>
+        <code className="lang-md">
+          <span className="hljs-number">1.</span> Item <span className="hljs-number">1</span>
+          <span className="hljs-number">1.</span> Item <span className="hljs-number">2</span>
+          <span className="hljs-number">1.</span> Item <span className="hljs-number">3</span>
+        </code>
       </pre>
       <p>Renders as:</p>
       <ol>
@@ -353,10 +361,11 @@ export function TypographyTest() {
       </ul>
 
       <p>In markdown, begin your lines with <code>*</code>. You can also use <code>-</code>, but don't make it a habit.</p>
-      <pre><code className="lang-md">* <span className="hljs-keyword">Item </span><span className="hljs-number">1</span>
-        * <span className="hljs-keyword">Item </span><span className="hljs-number">2</span>
-        * <span className="hljs-keyword">Item </span><span className="hljs-number">3</span>
-           </code>
+      <pre>
+        <code className="lang-md">* <span className="hljs-keyword">Item </span><span className="hljs-number">1</span>
+          * <span className="hljs-keyword">Item </span><span className="hljs-number">2</span>
+          * <span className="hljs-keyword">Item </span><span className="hljs-number">3</span>
+        </code>
       </pre>
       <p>Renders as:</p>
       <ul>
@@ -366,45 +375,47 @@ export function TypographyTest() {
       </ul>
       <h2>Nesting lists and mixing types</h2>
       <p>It's easiest to nest lists (even of different types) using markdown. Just indent the nested lists like so:</p>
-      <pre><code className="lang-md">* Item <span className="hljs-number">1</span>
-        * Unordered
-        * Children
-        * Item <span className="hljs-number">2</span>
-        <span className="hljs-number">1.</span> Ordered
-        <span className="hljs-number">1.</span> Children
-           </code>
+      <pre>
+        <code className="lang-md">* Item <span className="hljs-number">1</span>
+          * Unordered
+          * Children
+          * Item <span className="hljs-number">2</span>
+          <span className="hljs-number">1.</span> Ordered
+          <span className="hljs-number">1.</span> Children
+        </code>
       </pre>
       <p>Resulting in:</p>
       <ul>
         <li>Item 1<ul>
           <li>Unordered</li>
           <li>Children</li>
-        </ul>
+                  </ul>
         </li>
         <li>Item 2<ol>
           <li>Ordered</li>
           <li>Children</li>
-        </ol>
+                  </ol>
         </li>
       </ul>
       <p>In HTML, that looks like this:</p>
-      <pre><code className="lang-html"><span>&lt;<span>ul</span>&gt;</span>
-        <span>&lt;<span>li</span>&gt;</span>
-        Item 1
-        <span>&lt;<span>ul</span>&gt;</span>
-        <span>&lt;<span>li</span>&gt;</span>Unordered<span>&lt;/<span>li</span>&gt;</span>
-        <span>&lt;<span>li</span>&gt;</span>Children<span>&lt;/<span>li</span>&gt;</span>
-        <span>&lt;/<span>ul</span>&gt;</span>
-        <span>&lt;/<span>li</span>&gt;</span>
-        <span>&lt;<span>li</span>&gt;</span>
-        Item 2
-        <span>&lt;<span>ol</span>&gt;</span>
-        <span>&lt;<span>li</span>&gt;</span>Ordered<span>&lt;/<span>li</span>&gt;</span>
-        <span>&lt;<span>li</span>&gt;</span>Children<span>&lt;/<span>li</span>&gt;</span>
-        <span>&lt;/<span>ol</span>&gt;</span>
-        <span>&lt;/<span>li</span>&gt;</span>
-        <span>&lt;/<span>ul</span>&gt;</span>
-           </code>
+      <pre>
+        <code className="lang-html"><span>&lt;<span>ul</span>&gt;</span>
+          <span>&lt;<span>li</span>&gt;</span>
+          Item 1
+          <span>&lt;<span>ul</span>&gt;</span>
+          <span>&lt;<span>li</span>&gt;</span>Unordered<span>&lt;/<span>li</span>&gt;</span>
+          <span>&lt;<span>li</span>&gt;</span>Children<span>&lt;/<span>li</span>&gt;</span>
+          <span>&lt;/<span>ul</span>&gt;</span>
+          <span>&lt;/<span>li</span>&gt;</span>
+          <span>&lt;<span>li</span>&gt;</span>
+          Item 2
+          <span>&lt;<span>ol</span>&gt;</span>
+          <span>&lt;<span>li</span>&gt;</span>Ordered<span>&lt;/<span>li</span>&gt;</span>
+          <span>&lt;<span>li</span>&gt;</span>Children<span>&lt;/<span>li</span>&gt;</span>
+          <span>&lt;/<span>ol</span>&gt;</span>
+          <span>&lt;/<span>li</span>&gt;</span>
+          <span>&lt;/<span>ul</span>&gt;</span>
+        </code>
       </pre>
       <p>See:</p>
       <ul>
@@ -772,14 +783,14 @@ export function TypographyTest() {
       </div>
       <div>
         <label>buttons as links</label>
-        <button className="link" href="/" type="button">none</button>
-        <button className="link purple" href="/" type="button">purple</button>
-        <button className="link blue" href="/" type="button">blue</button>
-        <button className="link green" href="/" type="button">green</button>
-        <button className="link yellow" href="/" type="button">yellow</button>
-        <button className="link orange" href="/" type="button">orange</button>
-        <button className="link red" href="/" type="button">red</button>
-        <button disabled className="link" href="/" type="button">disabled</button>
+        <button className="link" type="button">none</button>
+        <button className="link purple" type="button">purple</button>
+        <button className="link blue" type="button">blue</button>
+        <button className="link green" type="button">green</button>
+        <button className="link yellow" type="button">yellow</button>
+        <button className="link orange" type="button">orange</button>
+        <button className="link red" type="button">red</button>
+        <button disabled className="link" type="button">disabled</button>
       </div>
       <div>
         <label>link types</label>

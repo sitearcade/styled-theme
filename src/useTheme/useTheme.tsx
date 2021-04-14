@@ -1,14 +1,15 @@
 // import
 
-import pt from 'prop-types';
+import type {PropsWithChildren} from 'react';
 import {useMemo, createContext, useContext} from 'react';
+import type {DefaultTheme} from 'styled-components';
 import {ThemeProvider as Provider, useTheme} from 'styled-components';
 
 import normalizeTheme from './normalizeTheme';
 
 // context
 
-const ThemeApiContext = createContext();
+const ThemeApiContext = createContext(undefined);
 
 // hook
 
@@ -20,7 +21,7 @@ export function useThemeApi() {
 
 // component
 
-export function ThemeProvider(props) {
+export function ThemeProvider(props: PropsWithChildren<{theme: DefaultTheme}>) {
   const {children, theme} = props;
   const boundTheme = useMemo(() => normalizeTheme(theme), [theme]);
 
@@ -30,8 +31,3 @@ export function ThemeProvider(props) {
     </Provider>
   );
 }
-
-ThemeProvider.propTypes = {
-  children: pt.node,
-  theme: pt.object.isRequired,
-};

@@ -1,6 +1,7 @@
 // import
 
 import * as R from 'ramda';
+import type {DefaultTheme} from 'styled-components';
 
 import defaultTheme from './defaultTheme';
 import {tweakColorViaCache as tweakColor} from './tweakColor';
@@ -18,21 +19,22 @@ const fixFont = (fam = '') => (
   fam.endsWith('mono') ? {mono: fam} : {}
 );
 
-const makeAlphaSteps = (col) =>
+const makeAlphaSteps = (col: string): Record<string, string> =>
   steps.reduce((acc, a) => ({...acc, [a]: tweakColor(col, {a: a / 100})}), {});
-const makeLumenSteps = (col) =>
+const makeLumenSteps = (col: string): Record<string, string> =>
   steps.reduce((acc, l) => ({...acc, [l]: tweakColor(col, {l})}), {});
 
-const hex2rgb = (hex) =>
+const hex2rgb = (hex: string) =>
   R.splitEvery(hex.length === 4 ? 1 : 2, hex.slice(1))
     .map((c) => parseInt(c, 16))
     .join(', ');
 
 // export
 
-export default function normalizeTheme(raw) {
-  const theme = R.mergeDeepRight(defaultTheme, raw);
-  const {font: {head, body}, color: {white, black, ...colors}} = theme;
+export default function normalizeTheme(raw: Partial<DefaultTheme>): DefaultTheme {
+  const {...theme} = R.mergeDeepRight(defaultTheme, raw);
+  const {head, body} = theme.font;
+  const {white, black, ...colors} = theme.color;
 
   theme.font = {
     ...theme.font,
@@ -44,12 +46,13 @@ export default function normalizeTheme(raw) {
     white: makeAlphaSteps(white),
     black: makeAlphaSteps(black),
     ...R.map(
-      (col) => makeLumenSteps(col),
+      (col: string) => makeLumenSteps(col),
       R.pickBy(R.startsWith('#'), colors),
-    ),
+    ) as unknown as Record<string, Record<string, string>>,
   };
 
+  // @ts-expect-error bad ramda types
   theme.rgb = R.map(hex2rgb, theme.color);
 
-  return theme;
+  return theme as DefaultTheme;
 }

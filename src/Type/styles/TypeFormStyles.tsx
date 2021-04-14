@@ -125,11 +125,11 @@ export const TypeFormStyles = createGlobalStyle`
       &:-webkit-autofill:focus,
       &:-webkit-autofill:active {
         /* stylelint-disable property-no-vendor-prefix */
-        -webkit-box-shadow: 0 0 0 100rem var(--white) inset;
+        box-shadow: 0 0 0 100rem var(--white) inset;
 
         &.disabled,
         &:disabled {
-          -webkit-box-shadow: 0 0 0 100rem var(--gray-80) inset;
+          box-shadow: 0 0 0 100rem var(--gray-80) inset;
         }
       }
     }

@@ -7,11 +7,28 @@ import {
 import {transparentize} from 'polished';
 import * as R from 'ramda';
 
-import {themeCache} from './themeCache';
+// types
+
+type Lch = {
+  h: number;
+  c: number;
+  l: number;
+};
+
+type Mod = {
+  a?: number;
+  h?: number;
+  c?: number;
+  l?: number;
+};
+
+// vars
+
+const cache = new Map<string, string>();
 
 // fns
 
-function hex2lch(hex) {
+function hex2lch(hex: string): Lch {
   const rgb = hex2rgb(hex);
   const xyz = rgb2xyz(...rgb);
   const lab = xyz2lab(...xyz);
@@ -20,7 +37,7 @@ function hex2lch(hex) {
   return {l: lch[0], c: lch[1], h: lch[2]};
 }
 
-function lch2hex(lch) {
+function lch2hex(lch: Lch): string {
   const lab = lch2lab(lch.l, lch.c, lch.h);
   const xyz = lab2xyz(...lab);
   const hwb = xyz2hwb(...xyz);
@@ -32,7 +49,7 @@ function lch2hex(lch) {
 
 // export
 
-export function tweakColor(base = '#000000', {a, ...lch} = {}) {
+export function tweakColor(base = '#000000', {a, ...lch}: Mod = {}) {
   base = R.isEmpty(lch) ? base :
     lch2hex({...hex2lch(base), ...lch});
   base = R.isNil(a) ? base :
@@ -41,13 +58,16 @@ export function tweakColor(base = '#000000', {a, ...lch} = {}) {
   return base;
 }
 
-export function tweakColorViaCache(base = '#000000', mod = {}) {
+export function tweakColorViaCache(base = '#000000', mod: Mod = {}) {
   const key = [base, mod.a, mod.l, mod.c, mod.h].join('-');
-  const found = themeCache.get(key);
+  const found = cache.get(key);
 
   if (found) {
     return found;
   }
 
-  return themeCache.set(key, tweakColor(base, mod));
+  const val = tweakColor(base, mod);
+  cache.set(key, val);
+
+  return val;
 }

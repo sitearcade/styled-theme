@@ -12,7 +12,8 @@
     "url": "https://www.sitearcade.com"
   },
   "sideEffects": false,
-  "source": "src/index.js",
+  "source": "src/index.ts",
+  "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
   "jsnext:main": "./dist/index.modern.js",
   "module": "./dist/index.module.js",
@@ -64,11 +65,14 @@
     "@storybook/addon-links": "6.2.7",
     "@storybook/react": "6.2.7",
     "@testing-library/dom": "7.30.3",
+    "@types/ramda": "0.27.40",
+    "@types/styled-components": "5.1.9",
     "babel-loader": "8.2.2",
     "microbundle": "0.13.0",
     "npm-run-all": "4.1.5",
     "raf-stub": "3.0.0",
-    "storybook-addon-performance": "0.15.2"
+    "storybook-addon-performance": "0.15.2",
+    "typescript": "4.2.4"
   },
   "engines": {
     "node": ">=10"

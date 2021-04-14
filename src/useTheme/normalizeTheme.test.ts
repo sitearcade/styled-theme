@@ -1,5 +1,7 @@
 // import
 
+import type {DefaultTheme} from 'styled-components';
+
 import normalizeTheme from './normalizeTheme';
 
 // test
@@ -8,7 +10,7 @@ describe('normalizeTheme(theme)', () => {
   it('returns theme with correct shape and defaults', () => {
     const theme = normalizeTheme({});
 
-    expect(theme).toContainAllKeys([
+    [
       'baseline',
       'breakpoints',
       'layout',
@@ -17,7 +19,7 @@ describe('normalizeTheme(theme)', () => {
       'color',
       'palette',
       'rgb',
-    ]);
+    ].forEach((v) => expect(theme).toHaveProperty(v));
   });
 
   it('should deep-merge regular properties', () => {
@@ -25,7 +27,7 @@ describe('normalizeTheme(theme)', () => {
       baseline: 17,
       fx: {blur: 0.5},
       color: {white: '#f6f8f9'},
-    });
+    } as DefaultTheme);
 
     expect(theme.baseline).toStrictEqual(17);
     expect(theme.fx.blur).toStrictEqual(0.5);
@@ -35,7 +37,7 @@ describe('normalizeTheme(theme)', () => {
   it('adds steps for new `palette` colors related to nearby colors', () => {
     const theme = normalizeTheme({
       color: {verdant: '#4d995c'},
-    });
+    } as unknown as DefaultTheme);
 
     expect(theme.palette.verdant).toMatchInlineSnapshot(`
       Object {
@@ -70,7 +72,7 @@ describe('normalizeTheme(theme)', () => {
         gray: '#f6f8f9',
         green: '#4d995c',
       },
-    });
+    } as DefaultTheme);
 
     expect(theme.palette.gray).toMatchInlineSnapshot(`
       Object {

@@ -51,5 +51,5 @@ export default {
     blue: '#0099ff',
     purple: '#990099',
   },
-};
+} as const;
 

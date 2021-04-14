@@ -8,11 +8,11 @@ const pInnerRx = /<\/?p>\s+<p>/g;
 
 // export
 
-export const addBreaks = (str) =>
+export const addBreaks = (str: string) =>
   str.trim()
     .replace(brRx, '<br />');
 
-export const addParas = (str) => [
+export const addParas = (str: string) => [
   '<p>',
   str.trim()
     .replace(paraRx, '</p><p>')
@@ -20,7 +20,7 @@ export const addParas = (str) => [
   '</p>',
 ].join('');
 
-export const paraToBreaks = (str) =>
+export const paraToBreaks = (str: string) =>
   str.trim()
     .replace(pStartRx, '')
     .replace(pEndRx, '')

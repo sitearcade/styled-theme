@@ -1,7 +1,7 @@
 // import
 
-import { addDecorator } from '@storybook/react';
-import { withPerformance } from 'storybook-addon-performance';
+import {addDecorator} from '@storybook/react';
+import {withPerformance} from 'storybook-addon-performance';
 import {ThemeProvider} from '../src/useTheme';
 
 // vars

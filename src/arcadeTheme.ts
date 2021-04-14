@@ -26,4 +26,4 @@ export const arcadeTheme = {
 
     prussia: '#2a7a8d',
   },
-};
+} as const;
