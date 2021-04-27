@@ -21,7 +21,7 @@
     "types.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/Type/Type.stories.jsx", "src/GlobalStyles/GlobalStyles.stories.jsx"  ],
+  ],
   "exclude": [
     "node_modules",
     ".test",
