@@ -1,6 +1,6 @@
 // import
 
-import {createGlobalStyle} from 'styled-components';
+import {createGlobalStyles as createGlobalStyle} from 'goober/global';
 
 // export
 
@@ -11,7 +11,7 @@ export const TypeButtonStyles = createGlobalStyle`
     }
 
     a.button,
-    button:not(.link):not(.unstyled),
+    button:not(.unstyled),
     input[type="button"],
     input[type="submit"],
     input[type="reset"] {
@@ -162,7 +162,7 @@ export const TypeButtonStyles = createGlobalStyle`
       }
 
       + a.button,
-      + button:not(.link):not(.unstyled),
+      + button:not(.unstyled),
       + input[type="button"],
       + input[type="submit"],
       + input[type="reset"] {

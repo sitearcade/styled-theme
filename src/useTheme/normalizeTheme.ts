@@ -1,9 +1,8 @@
 // import
 
 import * as R from 'ramda';
-import type {DefaultTheme} from 'styled-components';
 
-import defaultTheme from './defaultTheme';
+import type {DefaultTheme, ColorKey, Theme} from './defaultTheme';
 import {tweakColorViaCache as tweakColor} from './tweakColor';
 
 // vars
@@ -31,28 +30,29 @@ const hex2rgb = (hex: string) =>
 
 // export
 
-export default function normalizeTheme(raw: Partial<DefaultTheme>): DefaultTheme {
-  const {...theme} = R.mergeDeepRight(defaultTheme, raw);
-  const {head, body} = theme.font;
-  const {white, black, ...colors} = theme.color;
+export default function normalizeTheme(raw: DefaultTheme): Theme {
+  const {head, body} = raw.font;
+  const {white, black, ...colors} = raw.color;
 
-  theme.font = {
-    ...theme.font,
-    ...fixFont(head),
-    ...fixFont(body),
+  return {
+    ...raw,
+
+    font: {
+      ...raw.font,
+      ...fixFont(head),
+      ...fixFont(body),
+    },
+
+    rgb: R.map(hex2rgb, raw.color),
+
+    palette: {
+      ...R.map(
+        (col: string) => makeLumenSteps(col),
+        R.pickBy(R.startsWith('#'), colors),
+      ) as unknown as Record<ColorKey, Record<string, string>>,
+
+      white: makeAlphaSteps(white),
+      black: makeAlphaSteps(black),
+    },
   };
-
-  theme.palette = {
-    white: makeAlphaSteps(white),
-    black: makeAlphaSteps(black),
-    ...R.map(
-      (col: string) => makeLumenSteps(col),
-      R.pickBy(R.startsWith('#'), colors),
-    ) as unknown as Record<string, Record<string, string>>,
-  };
-
-  // @ts-expect-error bad ramda types
-  theme.rgb = R.map(hex2rgb, theme.color);
-
-  return theme as DefaultTheme;
 }

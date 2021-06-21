@@ -4,13 +4,13 @@ import type {ElementType, HTMLAttributes, PropsWithChildren, Ref} from 'react';
 
 // types
 
-type Props = PropsWithChildren<{
+type Props = HTMLAttributes<HTMLElement> & PropsWithChildren<{
   html?: string;
   className?: string;
   as?: ElementType;
   forwardRef?: Ref<Element>;
-  trim?: boolean | 'top' | 'end';
-}> & HTMLAttributes<HTMLElement>;
+  trim?: boolean | 'end' | 'top';
+}>;
 
 // component
 

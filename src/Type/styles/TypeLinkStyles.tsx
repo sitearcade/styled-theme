@@ -1,44 +1,66 @@
 // import
 
-import {createGlobalStyle} from 'styled-components';
+import {createGlobalStyles as createGlobalStyle} from 'goober/global';
 
 // export
 
 export const TypeLinkStyles = createGlobalStyle`
   .Type {
-    button.link {
-      appearance: none;
-      background: none;
-      display: inline;
-
-      margin: 0;
-      padding: 0;
-      border: 0;
-      border-radius: 0;
-
-      color: inherit;
-      font: inherit;
-      text-align: inherit;
-      line-height: inherit; 
-
-      width: auto;
-      height: 1.75rem;
-      overflow: visible;
+    a:not(.button):not(.unstyled):not([name]):not([id]) {
       cursor: pointer;
+      transition: color 100ms ease-in-out;
 
-      font-family: var(--font-body);
-      font-weight: 300;
-      letter-spacing: calc(var(--rpx) / -4); 
+      text-decoration: underline var(--blue);
+      .hover, &:hover { color: var(--blue); }
 
-      &::-webkit-butt
-
-      &::-moz-focus-inner {
-        border: 0;
-        padding: 0;
+      &.red {
+        text-decoration: underline var(--red);
+        .hover, &:hover { color: var(--red); }
       }
+
+      &.orange {
+        text-decoration: underline var(--orange);
+        .hover, &:hover { color: var(--orange); }
+      }
+
+      &.yellow {
+        text-decoration: underline var(--yellow);
+        .hover, &:hover { color: var(--yellow); }
+      }
+
+      &.green {
+        text-decoration: underline var(--green);
+        .hover, &:hover { color: var(--green); }
+      }
+
+      &.blue {
+        text-decoration: underline var(--blue);
+        .hover, &:hover { color: var(--blue); }
+      }
+
+      &.purple {
+        text-decoration: underline var(--purple);
+        .hover, &:hover { color: var(--purple); }
+      }
+
+      &.gray {
+        text-decoration: underline var(--gray-50);
+        .hover, &:hover { color: var(--gray-50); }
+      }
+
+      &.disabled,
+      &:disabled {
+        cursor: not-allowed;
+        pointer-events: none;
+        color: var(--gray-50);
+        text-decoration: underline var(--gray-50);
+      }
+      
+      &[href^="#"] { text-decoration: none; }
+      &.anchor:hover { color: inherit; }
     }
 
-    a:not(.button):not(.anchor):not(.bare):not([name]) {
+    a.icon {
       /* no link */
       &:not([href]) {}
 
@@ -70,122 +92,11 @@ export const TypeLinkStyles = createGlobalStyle`
       }
     }
 
-    button.link:not(.unstyled):not([name]),
-    a:not(.button):not(.unstyled):not([name]) {
-      cursor: pointer;
-      padding: 0 0.125rem;
-      background-image: linear-gradient(
-        to right, 
-        var(--yellow) 0%, 
-        var(--orange) 33%, 
-        var(--red) 100%
-      );
-      background-position: right bottom;
-      background-repeat: no-repeat;
-      background-size: 100% 0.125rem;
-      transition: background 0.1s ease-in;
+    /* anchors */
 
-      &.blue {
-        background-image: linear-gradient(
-          to right, 
-          var(--blue-80) 0%, 
-          var(--blue-70) 25%, 
-          var(--blue-50) 100%
-        );
-      }
-
-      &.purple {
-        background-image: linear-gradient(
-          to right, 
-          var(--purple-80) 0%, 
-          var(--purple-70) 25%, 
-          var(--purple-40) 100%
-        );
-      }
-
-      &.green {
-        background-image: linear-gradient(
-          to right, 
-          var(--green-80) 0%, 
-          var(--green-70) 25%, 
-          var(--green-40) 100%
-        );
-      }
-
-      &.yellow {
-        background-image: linear-gradient(
-          to right, 
-          var(--yellow-80) 0%, 
-          var(--yellow-70) 25%, 
-          var(--yellow-50) 100%
-        );
-      }
-
-      &.orange {
-        background-image: linear-gradient(
-          to right, 
-          var(--orange-80) 0%, 
-          var(--orange-70) 25%, 
-          var(--orange-45) 100%
-        );
-      }
-
-      &.red {
-        background-image: linear-gradient(
-          to right, 
-          var(--red-75) 0%, 
-          var(--red-65) 25%, 
-          var(--red-35) 100%
-        );
-      }
-
-      &::after {
-        position: relative;
-        top: 0em;
-        display: inline-block;
-        width: 0.75em;
-        height: 0.75em;
-        background-position: 0 100%;
-        background-size: 0.75em 0.75em;
-        background-repeat: no-repeat;
-        margin-left: 0.125rem;
-      }
-
-      &.hover,
-      &:hover {
-        background-size: 100% 0.25rem;
-      }
-
-      &.active,
-      &:active {
-        background-size: 0 0.5rem;
-      }
-
-      &.disabled,
-      &:disabled {
-        cursor: not-allowed;
-        color: var(--gray-60);
-        background: linear-gradient(to bottom, var(--gray-60) 0%, var(--gray-60) 100%);
-        background-position: left bottom;
-        background-repeat: no-repeat;
-        background-size: 100% var(--rpx);
-      }
-
-      &.disabled {
-        pointer-events: none;
-      }
-    }
-
-    /* nav anchors */
-    a.anchor:not([name]):not([id]):link {
-      background-size: 100% 0;
-    }
-
-    /* anchor targets */
     h1, h2, h3, h4, h5, h6,
-    a[id]:target,
-    a[name]:target {
-      --offset: calc(var(--layout-headerHeight) + 1.5rem);
+    a[id], a[name] {
+      --offset: calc(var(--layout-header-height) + 1.5rem);
 
       &::before {
         content: '';

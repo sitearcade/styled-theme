@@ -1,6 +1,6 @@
 // export
 
 export * from './useTheme';
-export * from './utils';
-export {default as normalizeTheme} from './normalizeTheme';
+export * from './normalizeTheme';
+export * from './defaultTheme';
 export {tweakColorViaCache as tweakColor} from './tweakColor';

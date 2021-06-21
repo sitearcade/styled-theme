@@ -1,6 +1,6 @@
 // import
 
-import {createGlobalStyle} from 'styled-components';
+import {createGlobalStyles as createGlobalStyle} from 'goober/global';
 
 // export
 
@@ -20,6 +20,7 @@ export const TypeInlineStyles = createGlobalStyle`
     strong,
     b {
       font-weight: 500;
+      font-variation-settings: 'wght' 450;
     }
 
     .underline {

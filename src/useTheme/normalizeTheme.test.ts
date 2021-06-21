@@ -1,14 +1,13 @@
 // import
 
-import type {DefaultTheme} from 'styled-components';
-
+import type {DefaultTheme} from './defaultTheme';
 import normalizeTheme from './normalizeTheme';
 
 // test
 
 describe('normalizeTheme(theme)', () => {
   it('returns theme with correct shape and defaults', () => {
-    const theme = normalizeTheme({});
+    const theme = normalizeTheme({} as unknown as DefaultTheme);
 
     [
       'baseline',
@@ -27,7 +26,7 @@ describe('normalizeTheme(theme)', () => {
       baseline: 17,
       fx: {blur: 0.5},
       color: {white: '#f6f8f9'},
-    } as DefaultTheme);
+    } as unknown as DefaultTheme);
 
     expect(theme.baseline).toStrictEqual(17);
     expect(theme.fx.blur).toStrictEqual(0.5);

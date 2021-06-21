@@ -1,6 +1,6 @@
 // import
 
-import {createGlobalStyle} from 'styled-components';
+import {createGlobalStyles as createGlobalStyle} from 'goober/global';
 
 // export
 

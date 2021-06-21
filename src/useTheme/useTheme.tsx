@@ -1,33 +1,32 @@
 // import
 
+import {setup} from 'goober';
+import {prefix} from 'goober/prefixer';
+import {shouldForwardProp as forward} from 'goober/should-forward-prop';
 import type {PropsWithChildren} from 'react';
-import {useMemo, createContext, useContext} from 'react';
-import type {DefaultTheme} from 'styled-components';
-import {ThemeProvider as Provider, useTheme} from 'styled-components';
+import {createContext, useContext, createElement} from 'react';
 
+import type {Theme} from './defaultTheme';
+import {defaultTheme} from './defaultTheme';
 import normalizeTheme from './normalizeTheme';
 
 // context
 
-const ThemeApiContext = createContext(undefined);
+export const theme = normalizeTheme(defaultTheme);
+const ThemeContext = createContext(theme);
+export const useTheme = () => useContext(ThemeContext);
 
-// hook
+export function ThemeProvider(props: PropsWithChildren<{theme: Theme}>) {
+  const {theme, ...rest} = props;
 
-export {useTheme};
-
-export function useThemeApi() {
-  return useContext(ThemeApiContext);
+  return <ThemeContext.Provider value={theme} {...rest} />;
 }
 
-// component
+// config
 
-export function ThemeProvider(props: PropsWithChildren<{theme: DefaultTheme}>) {
-  const {children, theme} = props;
-  const boundTheme = useMemo(() => normalizeTheme(theme), [theme]);
-
-  return (
-    <Provider theme={boundTheme}>
-      {children}
-    </Provider>
-  );
-}
+setup(
+  createElement,
+  prefix,
+  useTheme,
+  forward((prop: string) => !prop.startsWith('$')),
+);

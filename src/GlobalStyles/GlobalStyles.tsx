@@ -1,23 +1,21 @@
 // import
 
-import pt from 'prop-types';
+import type {Theme} from 'src/useTheme';
 
-import {BaseStyles} from './BaseStyles';
+import {GlobalBaseStyles} from './GlobalBaseStyles';
+import {GlobalStyleVars} from './GlobalStyleVars';
 import {Normalize} from './Normalize';
-import {StyleVars} from './StyleVars';
 
 // component
 
-export function GlobalStyles({theme}) {
+export function GlobalStyles(props: {theme: Theme}) {
+  const {theme} = props;
+
   return (
     <>
       <Normalize />
-      <StyleVars theme={theme} />
-      <BaseStyles />
+      <GlobalStyleVars theme={theme} />
+      <GlobalBaseStyles />
     </>
   );
 }
-
-GlobalStyles.propTypes = {
-  theme: pt.object,
-};

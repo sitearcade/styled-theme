@@ -1,6 +1,6 @@
 // import
 
-import {createGlobalStyle} from 'styled-components';
+import {createGlobalStyles as createGlobalStyle} from 'goober/global';
 
 // export
 
@@ -29,7 +29,8 @@ export const TypeMediaStyles = createGlobalStyle`
     }
 
     img {
-      border-radius: 0.25rem;
+      border-radius: 0.125rem;
+      box-shadow: 0 0 0.5rem var(--black-25);
     }
 
     picture {
