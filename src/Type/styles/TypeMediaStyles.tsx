@@ -79,7 +79,7 @@ export const TypeMediaStyles = createGlobalStyle`
       border-radius: 0.125rem;
       overflow: scroll hidden;
       background-color: var(--white);
-      box-shadow: 0 0 var(--fx-blur) var(--gray-60);
+      box-shadow: 0 0 0.125rem var(--gray-60);
 
       > *:first-child {
         margin-bottom: 0;

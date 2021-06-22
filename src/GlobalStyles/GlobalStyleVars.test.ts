@@ -2,21 +2,16 @@
 
 // import
 
-import normalizeTheme from '../useTheme/normalizeTheme';
+import {normalizeTheme} from '../useTheme/normalizeTheme';
 
-import {makeStyleVars} from './StyleVars';
+import {makeStyleVars} from './GlobalStyleVars';
 
 // test
 
 describe('makeStyleVars(theme)', () => {
   it('produces valid css variables based on theme', () => {
-    expect(makeStyleVars(normalizeTheme({}))).toMatchInlineSnapshot(`
-      "--baseline: 16px;
-      --layout-headerHeight: 0;
-      --fx-speed: 0.1s;
-      --fx-delay: 0.1s;
-      --fx-blur: 0.125rem;
-      --fx-spread: 0.0625rem;
+    expect(makeStyleVars(normalizeTheme())).toMatchInlineSnapshot(`
+      ":root {--layout-headerHeight: 4.5rem;
       --font-serif: serif;
       --font-sans: sans-serif;
       --font-mono: FiraCode-Retina, Fira Code, Menlo, Monaco, monospace;
@@ -32,6 +27,8 @@ describe('makeStyleVars(theme)', () => {
       --rgb-green: 0, 255, 0;
       --rgb-blue: 0, 153, 255;
       --rgb-purple: 153, 0, 153;
+      --rpx: 0.0625rem;
+      --baseline: 16px;
       --bp-xxs: 18rem;
       --bp-xs: 27rem;
       --bp-s: 36rem;
@@ -59,7 +56,6 @@ describe('makeStyleVars(theme)', () => {
       --bp-max-l: 71.99875em;
       --bp-max-xl: 80.99875em;
       --bp-max-xxl: 89.99875em;
-      --rpx: 0.0625rem;
       --white: #ffffff;
       --black: #000000;
       --gray: #7f7f7f;
@@ -69,48 +65,6 @@ describe('makeStyleVars(theme)', () => {
       --green: #00ff00;
       --blue: #0099ff;
       --purple: #990099;
-      --white-0: rgba(255,255,255,0);
-      --white-5: rgba(255,255,255,0.05);
-      --white-10: rgba(255,255,255,0.1);
-      --white-15: rgba(255,255,255,0.15);
-      --white-20: rgba(255,255,255,0.2);
-      --white-25: rgba(255,255,255,0.25);
-      --white-30: rgba(255,255,255,0.3);
-      --white-35: rgba(255,255,255,0.35);
-      --white-40: rgba(255,255,255,0.4);
-      --white-45: rgba(255,255,255,0.45);
-      --white-50: rgba(255,255,255,0.5);
-      --white-55: rgba(255,255,255,0.55);
-      --white-60: rgba(255,255,255,0.6);
-      --white-65: rgba(255,255,255,0.65);
-      --white-70: rgba(255,255,255,0.7);
-      --white-75: rgba(255,255,255,0.75);
-      --white-80: rgba(255,255,255,0.8);
-      --white-85: rgba(255,255,255,0.85);
-      --white-90: rgba(255,255,255,0.9);
-      --white-95: rgba(255,255,255,0.95);
-      --white-100: #fff;
-      --black-0: rgba(0,0,0,0);
-      --black-5: rgba(0,0,0,0.05);
-      --black-10: rgba(0,0,0,0.1);
-      --black-15: rgba(0,0,0,0.15);
-      --black-20: rgba(0,0,0,0.2);
-      --black-25: rgba(0,0,0,0.25);
-      --black-30: rgba(0,0,0,0.3);
-      --black-35: rgba(0,0,0,0.35);
-      --black-40: rgba(0,0,0,0.4);
-      --black-45: rgba(0,0,0,0.45);
-      --black-50: rgba(0,0,0,0.5);
-      --black-55: rgba(0,0,0,0.55);
-      --black-60: rgba(0,0,0,0.6);
-      --black-65: rgba(0,0,0,0.65);
-      --black-70: rgba(0,0,0,0.7);
-      --black-75: rgba(0,0,0,0.75);
-      --black-80: rgba(0,0,0,0.8);
-      --black-85: rgba(0,0,0,0.85);
-      --black-90: rgba(0,0,0,0.9);
-      --black-95: rgba(0,0,0,0.95);
-      --black-100: #000;
       --gray-0: #000000;
       --gray-5: #111111;
       --gray-10: #1b1b1b;
@@ -258,7 +212,49 @@ describe('makeStyleVars(theme)', () => {
       --purple-90: #ffb0fb;
       --purple-95: #ffbffc;
       --purple-100: #ffcdfc;
-      "
+      --white-0: rgba(255,255,255,0);
+      --white-5: rgba(255,255,255,0.05);
+      --white-10: rgba(255,255,255,0.1);
+      --white-15: rgba(255,255,255,0.15);
+      --white-20: rgba(255,255,255,0.2);
+      --white-25: rgba(255,255,255,0.25);
+      --white-30: rgba(255,255,255,0.3);
+      --white-35: rgba(255,255,255,0.35);
+      --white-40: rgba(255,255,255,0.4);
+      --white-45: rgba(255,255,255,0.45);
+      --white-50: rgba(255,255,255,0.5);
+      --white-55: rgba(255,255,255,0.55);
+      --white-60: rgba(255,255,255,0.6);
+      --white-65: rgba(255,255,255,0.65);
+      --white-70: rgba(255,255,255,0.7);
+      --white-75: rgba(255,255,255,0.75);
+      --white-80: rgba(255,255,255,0.8);
+      --white-85: rgba(255,255,255,0.85);
+      --white-90: rgba(255,255,255,0.9);
+      --white-95: rgba(255,255,255,0.95);
+      --white-100: #fff;
+      --black-0: rgba(0,0,0,0);
+      --black-5: rgba(0,0,0,0.05);
+      --black-10: rgba(0,0,0,0.1);
+      --black-15: rgba(0,0,0,0.15);
+      --black-20: rgba(0,0,0,0.2);
+      --black-25: rgba(0,0,0,0.25);
+      --black-30: rgba(0,0,0,0.3);
+      --black-35: rgba(0,0,0,0.35);
+      --black-40: rgba(0,0,0,0.4);
+      --black-45: rgba(0,0,0,0.45);
+      --black-50: rgba(0,0,0,0.5);
+      --black-55: rgba(0,0,0,0.55);
+      --black-60: rgba(0,0,0,0.6);
+      --black-65: rgba(0,0,0,0.65);
+      --black-70: rgba(0,0,0,0.7);
+      --black-75: rgba(0,0,0,0.75);
+      --black-80: rgba(0,0,0,0.8);
+      --black-85: rgba(0,0,0,0.85);
+      --black-90: rgba(0,0,0,0.9);
+      --black-95: rgba(0,0,0,0.95);
+      --black-100: #000;
+      }"
     `);
   });
 });

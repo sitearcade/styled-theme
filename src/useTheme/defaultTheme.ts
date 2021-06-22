@@ -1,5 +1,7 @@
 // types
 
+import type {PartialDeep} from 'type-fest';
+
 export type BreakKey = 'l' | 'm' | 'ml' | 's' | 'sm' | 'xl' | 'xs' | 'xxl' | 'xxs';
 export type Breaks = Record<BreakKey, number>;
 
@@ -15,11 +17,12 @@ Record<string, Record<string, string>>;
 export type DefaultTheme = {
   baseline: number;
   layout: Record<string, number | string>;
-  fx: Record<string, number>;
   breakpoints: Breaks;
   font: FontFams;
   color: Colors;
 };
+
+export type InputTheme = PartialDeep<DefaultTheme>;
 
 export type Theme = DefaultTheme & {
   rgb: Record<ColorKey, string> & Record<string, string>;
@@ -33,13 +36,6 @@ export const defaultTheme: DefaultTheme = {
 
   layout: {
     headerHeight: '4.5rem',
-  },
-
-  fx: {
-    speed: 0.1,
-    delay: 0.1,
-    blur: 0.125,
-    spread: 0.0625,
   },
 
   breakpoints: {

@@ -7,6 +7,8 @@ import {
 } from '@csstools/convert-colors';
 import {transparentize} from 'polished';
 
+import {isNum} from 'src/utils';
+
 // types
 
 type Lch = {
@@ -27,9 +29,6 @@ type Mod = {
 const cache = new Map<string, string>();
 
 // fns
-
-const isNum = (x: unknown): x is number =>
-  typeof x === 'number';
 
 function hex2lch(hex: string): Lch {
   const rgb = hex2rgb(hex);
@@ -56,7 +55,7 @@ function lch2hex(lch: Lch): string {
 // export
 
 export function tweakColor(base = '#000000', {a, ...lch}: Mod = {}) {
-  if (lch.l || lch.c || lch.h) {
+  if (isNum(lch.l) || isNum(lch.c) || isNum(lch.h)) {
     base = lch2hex({...hex2lch(base), ...lch});
   }
 

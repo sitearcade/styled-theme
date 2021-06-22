@@ -4,23 +4,25 @@ import {setup} from 'goober';
 import {prefix} from 'goober/prefixer';
 import {shouldForwardProp as forward} from 'goober/should-forward-prop';
 import type {PropsWithChildren} from 'react';
-import {createContext, useContext, createElement} from 'react';
+import {memo, createContext, useContext, createElement} from 'react';
 
-import type {Theme} from './defaultTheme';
-import {defaultTheme} from './defaultTheme';
-import normalizeTheme from './normalizeTheme';
+import type {InputTheme} from './defaultTheme';
+import {normalizeTheme} from './normalizeTheme';
 
 // context
 
-export const theme = normalizeTheme(defaultTheme);
-const ThemeContext = createContext(theme);
+const ThemeContext = createContext(normalizeTheme());
 export const useTheme = () => useContext(ThemeContext);
 
-export function ThemeProvider(props: PropsWithChildren<{theme: Theme}>) {
-  const {theme, ...rest} = props;
+export const ThemeProvider = memo(
+  // eslint-disable-next-line prefer-arrow-callback
+  function ThemeProvider(props: PropsWithChildren<{theme?: InputTheme}>) {
+    const {theme, ...rest} = props;
+    const value = normalizeTheme(theme);
 
-  return <ThemeContext.Provider value={theme} {...rest} />;
-}
+    return <ThemeContext.Provider value={value} {...rest} />;
+  },
+);
 
 // config
 

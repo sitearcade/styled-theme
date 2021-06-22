@@ -1,19 +1,18 @@
 // import
 
 import type {DefaultTheme} from './defaultTheme';
-import normalizeTheme from './normalizeTheme';
+import {normalizeTheme} from './normalizeTheme';
 
 // test
 
 describe('normalizeTheme(theme)', () => {
   it('returns theme with correct shape and defaults', () => {
-    const theme = normalizeTheme({} as unknown as DefaultTheme);
+    const theme = normalizeTheme();
 
     [
       'baseline',
       'breakpoints',
       'layout',
-      'fx',
       'font',
       'color',
       'palette',
@@ -29,7 +28,6 @@ describe('normalizeTheme(theme)', () => {
     } as unknown as DefaultTheme);
 
     expect(theme.baseline).toStrictEqual(17);
-    expect(theme.fx.blur).toStrictEqual(0.5);
     expect(theme.color.white).toStrictEqual('#f6f8f9');
   });
 

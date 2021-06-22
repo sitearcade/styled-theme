@@ -92,13 +92,13 @@ export const TypeFormStyles = createGlobalStyle`
       }
 
       &:hover {
-        box-shadow: 0 0 var(--fx-blur) var(--black-30);
+        box-shadow: 0 0 0.125rem var(--black-30);
       }
 
       &:focus {
         background-color: var(--white);
         border-color: var(--gray-50);
-        box-shadow: 0 0 var(--fx-blur) var(--black-70);
+        box-shadow: 0 0 0.125rem var(--black-70);
       }
 
       &.disabled,
@@ -111,12 +111,12 @@ export const TypeFormStyles = createGlobalStyle`
         border-color: var(--red);
 
         &:hover {
-          box-shadow: 0 0 var(--fx-blur) var(--red-70);
+          box-shadow: 0 0 0.125rem var(--red-70);
         }
 
         &:focus {
           border-color: var(--red-50);
-          box-shadow: 0 0 var(--fx-blur) var(--red-50);
+          box-shadow: 0 0 0.125rem var(--red-50);
         }
       }
 

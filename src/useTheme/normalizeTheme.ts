@@ -1,8 +1,11 @@
 // import
 
-import {mapObject} from 'src/GlobalStyles/GlobalStyleVars';
+import * as R from 'ramda';
 
-import type {DefaultTheme, Theme} from './defaultTheme';
+import {mapObject} from 'src/utils';
+
+import {defaultTheme} from './defaultTheme';
+import type {InputTheme, Theme, DefaultTheme} from './defaultTheme';
 import {tweakColorViaCache as tweakColor} from './tweakColor';
 
 // vars
@@ -41,22 +44,23 @@ const hex2rgb = (hex: string) => {
 
 // export
 
-export default function normalizeTheme(raw: DefaultTheme): Theme {
-  const {head, body} = raw.font;
-  const {white, black, ...colors} = raw.color;
+export function normalizeTheme(raw?: InputTheme): Theme {
+  const merge = R.mergeDeepRight(defaultTheme, raw ?? {}) as DefaultTheme;
+  const {head, body} = merge.font;
+  const {white, black, ...colors} = merge.color;
 
   return {
-    ...raw,
+    ...merge,
 
     font: {
-      ...raw.font,
+      ...merge.font,
       ...fixFont(head),
       ...fixFont(body),
     },
 
-    rgb: mapObject(hex2rgb, raw.color),
+    rgb: mapObject(hex2rgb, merge.color),
 
-    // @ts-expect-error It works...
+    // @ts-expect-error Works...
     palette: {
       ...mapObject(makeLumenSteps, colors),
       white: makeAlphaSteps(white),
