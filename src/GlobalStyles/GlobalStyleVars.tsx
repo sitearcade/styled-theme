@@ -45,7 +45,7 @@ export const makeStyleVars = (input: Theme) => {
 // styles
 
 export const GlobalStyleVars = createGlobalStyle(`
-${(props: {theme: Theme}) => useMemo(
+  ${(props: {theme: Theme}) => useMemo(
     () => makeStyleVars(props.theme),
     [props.theme],
   )}
