@@ -1,6 +1,6 @@
 {
   "name": "@sitearcade/styled-theme",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "description": "Theme-related react hooks, components, and utils.",
   "license": "MIT",
   "homepage": "https://www.sitearcade.com",
