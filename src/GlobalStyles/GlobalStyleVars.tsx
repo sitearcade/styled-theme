@@ -1,8 +1,7 @@
 // import
 
 import {createGlobalStyles as createGlobalStyle} from 'goober/global';
-import type {FC} from 'react';
-import {memo} from 'react';
+import {useMemo} from 'react';
 
 import type {Theme} from '../useTheme';
 import type {Json} from '../utils';
@@ -45,6 +44,9 @@ export const makeStyleVars = (input: Theme) => {
 
 // styles
 
-export const GlobalStyleVars = memo(createGlobalStyle(`
-  ${(props: {theme: Theme}) => makeStyleVars(props.theme)}
-`) as FC);
+export const GlobalStyleVars = createGlobalStyle(`
+${(props: {theme: Theme}) => useMemo(
+    () => makeStyleVars(props.theme),
+    [props.theme],
+  )}
+`);
