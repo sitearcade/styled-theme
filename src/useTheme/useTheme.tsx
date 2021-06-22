@@ -1,12 +1,9 @@
 // import
 
-import {setup} from 'goober';
-import {prefix} from 'goober/prefixer';
-import {shouldForwardProp as forward} from 'goober/should-forward-prop';
 import type {ReactNode} from 'react';
 import {memo, createContext, useContext} from 'react';
 
-import type {InputTheme, Theme} from './defaultTheme';
+import type {InputTheme} from './defaultTheme';
 import {normalizeTheme} from './normalizeTheme';
 
 // context
@@ -23,16 +20,3 @@ export const ThemeProvider = memo(
     return <ThemeContext.Provider value={value} {...rest} />;
   },
 );
-
-// config
-
-export const setupTheme = (
-  pragma: Parameters<typeof setup>[0],
-  useThemeHook: () => Theme,
-) =>
-  setup(
-    pragma,
-    prefix,
-    useThemeHook,
-    forward((prop: string) => !prop.startsWith('$')),
-  );
