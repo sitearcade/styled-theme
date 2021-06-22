@@ -5,7 +5,7 @@ import {prefix} from 'goober/prefixer';
 import {shouldForwardProp as forward} from 'goober/should-forward-prop';
 import {createElement} from 'react';
 
-import {useTheme} from './useTheme/useTheme';
+import {useTheme} from './useTheme';
 
 // export
 

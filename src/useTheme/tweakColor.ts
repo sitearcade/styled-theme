@@ -7,7 +7,7 @@ import {
 } from '@csstools/convert-colors';
 import {transparentize} from 'polished';
 
-import {isNum} from 'src/utils';
+import {isNum} from '../utils';
 
 // types
 

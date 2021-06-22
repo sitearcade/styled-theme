@@ -2,7 +2,7 @@
 
 import * as R from 'ramda';
 
-import {mapObject} from 'src/utils';
+import {mapObject} from '../utils';
 
 import {defaultTheme} from './defaultTheme';
 import type {InputTheme, Theme, DefaultTheme} from './defaultTheme';
