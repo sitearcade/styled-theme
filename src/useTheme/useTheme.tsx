@@ -26,9 +26,10 @@ export const ThemeProvider = memo(
 
 // config
 
-setup(
-  createElement,
-  prefix,
-  useTheme,
-  forward((prop: string) => !prop.startsWith('$')),
-);
+export const setupTheme = () =>
+  setup(
+    createElement,
+    prefix,
+    useTheme,
+    forward((prop: string) => !prop.startsWith('$')),
+  );
