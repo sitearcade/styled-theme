@@ -11,7 +11,7 @@ import {makeStyleVars} from './GlobalStyleVars';
 describe('makeStyleVars(theme)', () => {
   it('produces valid css variables based on theme', () => {
     expect(makeStyleVars(normalizeTheme())).toMatchInlineSnapshot(`
-      ":root {--layout-header-height: 4.5rem;
+      ":root {--layout-headerHeight: 4.5rem;
       --font-serif: serif;
       --font-sans: sans-serif;
       --font-mono: FiraCode-Retina, Fira Code, Menlo, Monaco, monospace;
