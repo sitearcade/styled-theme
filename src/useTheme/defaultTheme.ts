@@ -9,6 +9,9 @@ export type FontFams = Record<FontFamKey, string>;
 export type ColorKey = 'black' | 'blue' | 'gray' | 'green' | 'orange' | 'purple' | 'red' | 'white' | 'yellow';
 export type Colors = Record<ColorKey, string> & Record<string, string>;
 
+export type Palette = Record<ColorKey, Record<string, string>> &
+Record<string, Record<string, string>>;
+
 export type DefaultTheme = {
   baseline: number;
   layout: Record<string, number | string>;
@@ -20,8 +23,7 @@ export type DefaultTheme = {
 
 export type Theme = DefaultTheme & {
   rgb: Record<ColorKey, string> & Record<string, string>;
-  palette: Record<ColorKey, Record<string, string>> &
-  Record<string, Record<string, string>>;
+  palette: Palette;
 };
 
 // export

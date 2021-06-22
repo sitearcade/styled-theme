@@ -6,7 +6,6 @@ import {
   lch2lab, lab2xyz, xyz2hwb, hwb2rgb, rgb2hex,
 } from '@csstools/convert-colors';
 import {transparentize} from 'polished';
-import * as R from 'ramda';
 
 // types
 
@@ -45,7 +44,9 @@ function lch2hex(lch: Lch): string {
   const lab = lch2lab(lch.l, lch.c, lch.h);
   const xyz = lab2xyz(...lab);
   const hwb = xyz2hwb(...xyz);
-  const clamp = hwb.map((v, i) => (i ? R.clamp(0, 100, v) : v)) as Hwb;
+  const clamp = hwb.map((v, i) => (
+    i ? Math.max(0, Math.min(100, v)) : v
+  )) as Hwb;
   const rgb = hwb2rgb(...clamp);
   const hex = rgb2hex(...rgb);
 
@@ -55,7 +56,7 @@ function lch2hex(lch: Lch): string {
 // export
 
 export function tweakColor(base = '#000000', {a, ...lch}: Mod = {}) {
-  if (!R.isEmpty(lch)) {
+  if (lch.l || lch.c || lch.h) {
     base = lch2hex({...hex2lch(base), ...lch});
   }
 

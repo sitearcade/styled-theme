@@ -1,14 +1,17 @@
 // import
 
-import * as R from 'ramda';
+import {mapObject} from 'src/GlobalStyles/GlobalStyleVars';
 
-import type {DefaultTheme, ColorKey, Theme} from './defaultTheme';
+import type {DefaultTheme, Theme} from './defaultTheme';
 import {tweakColorViaCache as tweakColor} from './tweakColor';
 
 // vars
 
 const stepSize = 5;
-const steps = R.times((n) => n * stepSize, Math.round(100 / stepSize) + 1);
+const steps = Array.from(
+  {length: Math.round(100 / stepSize) + 1},
+  (_, n) => n * stepSize,
+);
 
 // fns
 
@@ -21,12 +24,20 @@ const fixFont = (fam = '') => (
 const makeAlphaSteps = (col: string): Record<string, string> =>
   steps.reduce((acc, a) => ({...acc, [a]: tweakColor(col, {a: a / 100})}), {});
 const makeLumenSteps = (col: string): Record<string, string> =>
-  steps.reduce((acc, l) => ({...acc, [l]: tweakColor(col, {l})}), {});
+  steps.reduce<Record<string, string>>((acc, l) => ({
+    ...acc, [`${l}`]: tweakColor(col, {l}),
+  }), {});
 
-const hex2rgb = (hex: string) =>
-  R.splitEvery(hex.length === 4 ? 1 : 2, hex.slice(1))
-    .map((c) => parseInt(c, 16))
-    .join(', ');
+const hex2rgb = (hex: string) => {
+  const by = hex.length === 4 ? 1 : 2;
+  const clip = hex.slice(1);
+
+  return [
+    clip.slice(0, by),
+    clip.slice(by, by * 2),
+    clip.slice(by * 2, by * 3),
+  ].map((c) => parseInt(c, 16)).join(', ');
+};
 
 // export
 
@@ -43,14 +54,11 @@ export default function normalizeTheme(raw: DefaultTheme): Theme {
       ...fixFont(body),
     },
 
-    rgb: R.map(hex2rgb, raw.color),
+    rgb: mapObject(hex2rgb, raw.color),
 
+    // @ts-expect-error It works...
     palette: {
-      ...R.map(
-        (col: string) => makeLumenSteps(col),
-        R.pickBy(R.startsWith('#'), colors),
-      ) as unknown as Record<ColorKey, Record<string, string>>,
-
+      ...mapObject(makeLumenSteps, colors),
       white: makeAlphaSteps(white),
       black: makeAlphaSteps(black),
     },
